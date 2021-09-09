@@ -1,0 +1,73 @@
+01:30:26 **** Build of configuration Debug for project LAB2_EXI_STM32F103 ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../Src/main.c:46:10: error: unknown type name 'R_ODR_t'
+ volatile R_ODR_t* R_ODR=(volatile R_ODR_t*)(GPIOA_BASE + 0x0C);
+          ^~~~~~~
+../Src/main.c:46:35: error: unknown type name 'R_ODR_t'
+ volatile R_ODR_t* R_ODR=(volatile R_ODR_t*)(GPIOA_BASE + 0x0C);
+                                   ^~~~~~~
+../Src/main.c: In function 'EXTI0_IRQHandler':
+../Src/main.c:66:7: error: request for member 'Pin' in something not a structure or union
+  R_ODR->Pin.p_13 ^=1;
+       ^~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+01:32:05 **** Incremental Build of configuration Debug for project LAB2_EXI_STM32F103 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "LAB2_EXI_STM32F103.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit6\Lesson4\Lab2_EXI_STM32F103\LAB2_EXI_STM32F103\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB2_EXI_STM32F103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB2_EXI_STM32F103.elf
+ 
+arm-none-eabi-size   LAB2_EXI_STM32F103.elf 
+arm-none-eabi-objdump -h -S  LAB2_EXI_STM32F103.elf  > "LAB2_EXI_STM32F103.list"
+arm-none-eabi-objcopy  -O binary  LAB2_EXI_STM32F103.elf  "LAB2_EXI_STM32F103.bin"
+   text	   data	    bss	    dec	    hex	filename
+    776	      8	   1568	   2352	    930	LAB2_EXI_STM32F103.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB2_EXI_STM32F103.bin
+ 
+Finished building: LAB2_EXI_STM32F103.list
+ 
+01:37:19 **** Incremental Build of configuration Debug for project LAB2_EXI_STM32F103 ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc -gdwarf-2 "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "LAB2_EXI_STM32F103.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit6\Lesson4\Lab2_EXI_STM32F103\LAB2_EXI_STM32F103\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB2_EXI_STM32F103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB2_EXI_STM32F103.elf
+ 
+arm-none-eabi-objdump -h -S  LAB2_EXI_STM32F103.elf  > "LAB2_EXI_STM32F103.list"
+arm-none-eabi-objcopy  -O binary  LAB2_EXI_STM32F103.elf  "LAB2_EXI_STM32F103.bin"
+arm-none-eabi-size   LAB2_EXI_STM32F103.elf 
+   text	   data	    bss	    dec	    hex	filename
+    776	      8	   1568	   2352	    930	LAB2_EXI_STM32F103.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB2_EXI_STM32F103.list
+ 
+Finished building: LAB2_EXI_STM32F103.bin
+ 
+02:14:17 **** Incremental Build of configuration Debug for project LAB2_EXI_STM32F103 ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "LAB2_EXI_STM32F103.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit6\Lesson4\Lab2_EXI_STM32F103\LAB2_EXI_STM32F103\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB2_EXI_STM32F103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB2_EXI_STM32F103.elf
+ 
+arm-none-eabi-objdump -h -S  LAB2_EXI_STM32F103.elf  > "LAB2_EXI_STM32F103.list"
+arm-none-eabi-objcopy  -O binary  LAB2_EXI_STM32F103.elf  "LAB2_EXI_STM32F103.bin"
+arm-none-eabi-size   LAB2_EXI_STM32F103.elf 
+   text	   data	    bss	    dec	    hex	filename
+    776	      8	   1568	   2352	    930	LAB2_EXI_STM32F103.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB2_EXI_STM32F103.bin
+Finished building: LAB2_EXI_STM32F103.list
+ 
+ 
