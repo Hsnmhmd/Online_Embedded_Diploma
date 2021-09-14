@@ -1,0 +1,12 @@
+14:43:26 **** Incremental Build of configuration Debug for project LAB1_Toggle_Blueblill_Stm32f103c ****
+make -j4 all 
+arm-none-eabi-gcc -o "LAB1_Toggle_Blueblill_Stm32f103c.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit7\Lesson1\LAB1_Toggle_Blueblill_Stm32f103c\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB1_Toggle_Blueblill_Stm32f103c.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Core/main.o: In function `main':
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson1/LAB1_Toggle_Blueblill_Stm32f103c/Debug/../Core/main.c:48: multiple definition of `main'
+Core/Src/main.o:D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson1/LAB1_Toggle_Blueblill_Stm32f103c/Debug/../Core/Src/main.c:64: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:51: LAB1_Toggle_Blueblill_Stm32f103c.elf] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+
+14:43:28 Build Failed. 3 errors, 0 warnings. (took 2s.174ms)
+
