@@ -1,0 +1,64 @@
+/*
+ * Stm32_F103C6_gpio_driver.c
+ *
+ *  Created on: Sep 18, 2021
+ *      Author: hassan
+ */
+#include"Stm32_F103C6_gpio_driver.h"
+//-----------------------------
+void MCAL_GPIO_Init(GPIO_t *GPIOx, GPIO_PinConfig_t* pinconfig){
+	uint64_t Config = (uint64_t)(pinconfig->GPIO_Mode<<((pinconfig->GPIO_Pin_Number)*4));
+	if((pinconfig->GPIO_Pin_Number)*4<32){
+		GPIOx->CRL &=~(0xF<<((pinconfig->GPIO_Pin_Number)*4));
+		GPIOx->CRL |=(uint32_t)Config;
+	}
+	else	{
+		GPIOx->CRH &=~(0xF<<((pinconfig->GPIO_Pin_Number)*4-32));
+		GPIOx->CRH |=(uint32_t)(Config>>32);
+	}
+	if (pinconfig->GPIO_Mode == GPIO_MODE_INPUT_PD)
+		GPIOx->ODR |=(1<<pinconfig->GPIO_Pin_Number);
+
+}
+void MCAL_GPIO_DeInit(GPIO_t *GPIOx){
+	GPIOx->BRR =0x00000000;
+	GPIOx->BSRR =0x00000000;
+	GPIOx->CRH =0x44444444;
+	GPIOx->CRL =0x44444444;
+	GPIOx->IDR =0x00000000;
+	GPIOx->LCKR =0x00000000;
+	GPIOx->ODR =0x00000000;
+}
+uint8_t MCAL_GPIO_ReadPIN(GPIO_t *GPIOx, uint8_t Pin_Number){
+	uint8_t value=(GPIOx->IDR>>Pin_Number);
+	return value;
+}
+uint16_t MCAL_GPIO_ReadPort(GPIO_t *GPIOx){
+	return GPIOx->IDR;
+}
+void MCAL_GPIO_WritePort(GPIO_t *GPIOx, uint16_t value){
+	GPIOx->ODR= value;
+}
+void MCAL_GPIO_WritePin(GPIO_t *GPIOx, uint8_t Pin_Number,uint8_t value){
+	if(!value)
+		GPIOx->ODR &=~(1<<Pin_Number);
+	else
+		GPIOx->ODR |=(1<<Pin_Number);
+
+}
+void MCAL_GPIO_TogglePin(GPIO_t *GPIOx, uint8_t Pin_Number){
+	GPIOx->ODR ^=(1<<Pin_Number);
+}
+
+void MCAL_GPIO_LockPin(GPIO_t *GPIOx, uint8_t Pin_Number){
+
+}
+//Macros Configuration References
+//-----------------------------
+/*@ref Module_REF_NAME_define
+*/
+/*
+* ===============================================
+* APIs Supported by "MCAL GPIO DRIVER"
+* ===============================================
+*/

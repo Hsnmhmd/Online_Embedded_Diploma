@@ -1,0 +1,36 @@
+/*
+ * stm32f103x6.h
+ *
+ *  Created on: Sep 18, 2021
+ *      Author: hassan
+ */
+
+#ifndef INC_STM32F103X6_H_
+#define INC_STM32F103X6_H_
+//-----------------------------
+//Includes
+#include<stdint.h>
+#include<stdlib.h>
+//Base addresses for Memories
+#define Flash_Memory_BASE 					0x08000000UL
+#define System_Memory_BASE 					0x1FFFF000UL
+#define SRAM_BASE 							0x20000000UL
+#define Peripherals_BASE 					0x40000000UL
+#define Cortex_M3_Internal_Peripherals_BASE 0xE0000000UL
+//Base addresses for BUS Peripherals
+//-----------------------------
+//-*-*-*-*-*-*-*-*-*-*-*-
+//Peripheral register:
+//-*-*-*-*-*-*-*-*-*-*-*
+//-*-*-*-*-*-*-*-*-*-*-*-
+//Peripheral Instants:
+//-*-*-*-*-*-*-*-*-*-*-*
+//-*-*-*-*-*-*-*-*-*-*-*-
+//clock enable Macros:
+//-*-*-*-*-*-*-*-*-*-*-*
+//-*-*-*-*-*-*-*-*-*-*-*-
+//Generic Macros:
+//-*-*-*-*-*-*-*-*-*-*-*
+
+
+#endif /* INC_STM32F103X6_H_ */

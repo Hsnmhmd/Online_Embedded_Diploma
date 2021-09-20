@@ -1,0 +1,27 @@
+/*
+ * Stm32_F103C6_gpio_driver.c
+ *
+ *  Created on: Sep 18, 2021
+ *      Author: hassan
+ */
+#include"Stm32_F103C6_gpio_driver.h"
+//-----------------------------
+void MCAL_GPIO_Init(GPIO_t *GPIOx, GPIO_PinConfig_t* pinconfig){
+
+}
+void MCAL_GPIO_DeInit(GPIO_t *GPIOx);
+void MCAL_GPIO_ReadPIN(GPIO_t *GPIOx, uint8_t Pin_Number);
+void MCAL_GPIO_ReadPort(GPIO_t *GPIOx);
+void MCAL_GPIO_WritePort(GPIO_t *GPIOx, uint8_t value);
+void MCAL_GPIO_WritePin(GPIO_t *GPIOx, uint8_t Pin_Number,uint8_t);
+void MCAL_GPIO_TogglePin(GPIO_t *GPIOx, uint8_t Pin_Number);
+void MCAL_GPIO_LockPin(GPIO_t *GPIOx, uint8_t Pin_Number);
+//Macros Configuration References
+//-----------------------------
+/*@ref Module_REF_NAME_define
+*/
+/*
+* ===============================================
+* APIs Supported by "MCAL GPIO DRIVER"
+* ===============================================
+*/
