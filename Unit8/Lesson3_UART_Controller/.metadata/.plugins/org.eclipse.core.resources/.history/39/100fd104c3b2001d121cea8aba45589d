@@ -1,0 +1,51 @@
+/*
+ * Stm32_F103C6_gpio_driver.c
+ *
+ *  Created on: Sep 18, 2021
+ *      Author: hassan
+ */
+
+#include"Stm32f103x6.h"
+#include"Stm32_F103C6_RCC_driver.h"
+//-----------------------------
+/*
+ * ===============================================
+ * Generic Variables by "MCAL EXTI DRIVER"
+ * ===============================================
+ */
+/*
+ * ===============================================
+ * Generic Macros by "MCAL EXTI DRIVER"
+ * ===============================================
+ */
+
+/*
+ * ===============================================
+ * Generic Functions by "MCAL EXTI DRIVER"
+ * ===============================================
+ */
+
+/*
+ * ===============================================
+ * APIs Supported by "MCAL EXTI DRIVER"
+ * ===============================================
+ */
+/**================================================================
+ * @Fn-				MCAL_EXTI_Init
+ * @brief -			Initialize Specific pin in the port to be used As EXTI
+ * @param [in] -	Cofiguration structure
+ * @param [out] -	None
+ * @retval -			None
+ * Note-				STM32F103C6 MCU has PORTS A,B,C,D,E
+ * 					While LQFP84 Has only A,B and Part of C,D
+ */
+
+/**================================================================
+ * @Fn-				MCAL_EXTI_DeInit
+ * @brief -			Reset EXTI Registers and NVIC
+ * @param [in] -		void
+ * @param [out] -	void
+ * @retval -			void
+ * Note-				STM32F103C6 MCU has PORTS A,B,C,D,E
+ * 					While LQFP84 Has only A,B and Part of C,D
+ */

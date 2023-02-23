@@ -1,0 +1,61 @@
+/*
+ * Stm32_F103C6_gpio_driver.c
+ *
+ *  Created on: Sep 18, 2021
+ *      Author: hassan
+ */
+#include"Stm32_F103C6_UART_driver.h"
+#include"Stm32_F103C6_gpio_driver.h"
+//-----------------------------
+/*
+ * ===============================================
+ * Generic Variables by "MCAL EXTI DRIVER"
+ * ===============================================
+ */
+/*
+ * ===============================================
+ * Generic Macros by "MCAL EXTI DRIVER"
+ * ===============================================
+ */
+
+/*
+ * ===============================================
+ * Generic Functions by "MCAL EXTI DRIVER"
+ * ===============================================
+ */
+
+/*
+ * ===============================================
+ * APIs Supported by "MCAL USART DRIVER"
+ * ===============================================
+ */
+/**================================================================
+ * @Fn-				MCAL_EXTI_Init
+ * @brief -			Initialize Specific USART according the config struct
+ * @param [in] -	Cofiguration structure, usart instance
+ * @param [out] -	None
+ * @retval -			None
+ * Note-
+ */
+void USART_init(UART_Config_t *UART_Config , USART_t* USARTx){
+
+}
+void USART_DeInit(USART_t *USARTx);
+
+void USART_SetPins(USART_t *USARTx);
+
+void USART_Send(USART_t *USARTx , uint16 *pTxBuffer , enum Polling_Mechanism PollingEn );
+void USART_Recieve(USART_t *USARTx , uint16 *pTxBuffer , enum Polling_Mechanism PollingEn );
+
+void USART_Wait_TC(USART_t *USARTx);
+
+
+/**================================================================
+ * @Fn-				MCAL_EXTI_DeInit
+ * @brief -			Reset EXTI Registers and NVIC
+ * @param [in] -		void
+ * @param [out] -	void
+ * @retval -			void
+ * Note-				STM32F103C6 MCU has PORTS A,B,C,D,E
+ * 					While LQFP84 Has only A,B and Part of C,D
+ */
