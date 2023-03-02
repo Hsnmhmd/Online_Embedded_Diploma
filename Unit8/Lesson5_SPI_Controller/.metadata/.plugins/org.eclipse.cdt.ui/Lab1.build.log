@@ -1,0 +1,21 @@
+05:28:49 **** Incremental Build of configuration Debug for project Lab1 ****
+make -j16 all 
+arm-none-eabi-gcc -gdwarf-2 "../Stm32f103c6_Drivers/Stm32_F103C6_SPI_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit8/Lesson5_SPI_Controller/Lab1/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit8/Lesson5_SPI_Controller/Lab1/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Stm32f103c6_Drivers/Stm32_F103C6_SPI_driver.d" -MT"Stm32f103c6_Drivers/Stm32_F103C6_SPI_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Stm32f103c6_Drivers/Stm32_F103C6_SPI_driver.o"
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit8/Lesson5_SPI_Controller/Lab1/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit8/Lesson5_SPI_Controller/Lab1/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Lab1.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit8\Lesson5_SPI_Controller\Lab1\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab1.elf
+ 
+arm-none-eabi-objdump -h -S  Lab1.elf  > "Lab1.list"
+arm-none-eabi-objcopy  -O binary  Lab1.elf  "Lab1.bin"
+arm-none-eabi-size   Lab1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3752	      8	   1648	   5408	   1520	Lab1.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab1.bin
+Finished building: Lab1.list
+ 
+ 
+
+05:28:50 Build Finished. 0 errors, 0 warnings. (took 735ms)
+

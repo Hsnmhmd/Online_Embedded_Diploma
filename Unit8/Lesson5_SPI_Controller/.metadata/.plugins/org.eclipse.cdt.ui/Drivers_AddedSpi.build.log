@@ -1,0 +1,20 @@
+17:17:40 **** Incremental Build of configuration Debug for project Drivers_AddedSpi ****
+make -j16 all 
+arm-none-eabi-gcc -gdwarf-2 "../Stm32f103c6_Drivers/Stm32_F103C6_SPI_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit8/Lesson5_SPI_Controller/Lab1/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit8/Lesson5_SPI_Controller/Lab1/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Stm32f103c6_Drivers/Stm32_F103C6_SPI_driver.d" -MT"Stm32f103c6_Drivers/Stm32_F103C6_SPI_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Stm32f103c6_Drivers/Stm32_F103C6_SPI_driver.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Drivers_AddedSpi.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit8\Lesson5_SPI_Controller\Lab1\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Drivers_AddedSpi.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Drivers_AddedSpi.elf
+ 
+arm-none-eabi-objdump -h -S  Drivers_AddedSpi.elf  > "Drivers_AddedSpi.list"
+arm-none-eabi-objcopy  -O binary  Drivers_AddedSpi.elf  "Drivers_AddedSpi.bin"
+arm-none-eabi-size   Drivers_AddedSpi.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3588	      8	   1648	   5244	   147c	Drivers_AddedSpi.elf
+Finished building: default.size.stdout
+ 
+Finished building: Drivers_AddedSpi.bin
+Finished building: Drivers_AddedSpi.list
+ 
+ 
+
+17:17:41 Build Finished. 0 errors, 0 warnings. (took 761ms)
+

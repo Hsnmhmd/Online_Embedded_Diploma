@@ -106,7 +106,7 @@ void MCAL_USART_DeInit(USART_t* USARTx )
 
 }
 /*******************************************************************************************************************
- * 		@Fn               -MCAL_USART_Set_Pins
+ * 		@Fn               -MCAL_USART_SetPins
  * 		@brief            -set the Gpio pins to work with AFIO(UART)
  *		param[in]         -USARTx :where x can be 1,2,3 depending on device used
  * 		@retval           -none
@@ -184,7 +184,7 @@ void MCAL_USART_SetPins(USART_t *USARTx){
  *
  ********************************************************************************************************************/
 void MCAL_USART_Send(USART_t *USARTx , uint16_t *pTxBuffer , enum Polling_Mechanism PollingEn ){
-	//wait until TXE is set
+
 	UART_Config_t * UARTx_Config;
 	if(USARTx == USART1)
 	{
@@ -196,6 +196,7 @@ void MCAL_USART_Send(USART_t *USARTx , uint16_t *pTxBuffer , enum Polling_Mechan
 	}else if(USARTx == USART3){
 		UARTx_Config=Global_UART3_Config;
 	}
+	//wait until TXE is set Transmit data register empty
 	if(PollingEn==Enable)
 		while(!(USARTx->SR &(1<<7)));
 
@@ -269,18 +270,18 @@ void MCAL_USART_Wait_TC(USART_t *USARTx)
 
 
 //ISR
-void USART1_IRQHandler(enum UART_IRQ_Event  flag)
+void USART1_IRQHandler()
 {
-	Global_UART1_Config->P_IRQ_CallBack(flag);
+	Global_UART1_Config->P_IRQ_CallBack();
 }
 
-void USART2_IRQHandler(enum UART_IRQ_Event  flag)
+void USART2_IRQHandler()
 {
-	Global_UART2_Config->P_IRQ_CallBack( flag);
+	Global_UART2_Config->P_IRQ_CallBack( );
 }
 
-void USART3_IRQHandler(enum UART_IRQ_Event  flag)
+void USART3_IRQHandler()
 {
-	Global_UART3_Config->P_IRQ_CallBack(  flag);
+	Global_UART3_Config->P_IRQ_CallBack();
 }
 

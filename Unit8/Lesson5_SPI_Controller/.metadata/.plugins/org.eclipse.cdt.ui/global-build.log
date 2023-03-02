@@ -1,0 +1,16 @@
+17:59:01 **** Build of configuration Debug for project Drivers_SPI_Added ****
+make -j16 all 
+arm-none-eabi-gcc -gdwarf-2 -o "Drivers_SPI_Added.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit8\Lesson5_SPI_Controller\Drivers_SPI_Added\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Drivers_SPI_Added.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Drivers_SPI_Added.elf
+ 
+arm-none-eabi-size   Drivers_SPI_Added.elf 
+arm-none-eabi-objdump -h -S  Drivers_SPI_Added.elf  > "Drivers_SPI_Added.list"
+arm-none-eabi-objcopy  -O binary  Drivers_SPI_Added.elf  "Drivers_SPI_Added.bin"
+   text	   data	    bss	    dec	    hex	filename
+   3588	      8	   1648	   5244	   147c	Drivers_SPI_Added.elf
+Finished building: default.size.stdout
+ 
+Finished building: Drivers_SPI_Added.bin
+Finished building: Drivers_SPI_Added.list
+ 
+ 

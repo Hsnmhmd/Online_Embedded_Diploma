@@ -24,7 +24,7 @@
 #define USARTDIV_Mul100(_PCLK_,_BAUD_)           (uint32_t)((25 * _PCLK_)/(4 * _BAUD_))
 #define Mantissa_MUL100(_PCLK_,_BAUD_)           (uint32_t) (USARTDIV(_PCLK_,_BAUD_) * 100)
 #define Mantissa(_PCLK_,_BAUD_)                	 (uint32_t) (USARTDIV(_PCLK_,_BAUD_))
-#define DIV_Fraction(_PCLK_,_BAUD_)            	 (uint32_t) (( USARTDIV_Mul100(_PCLK_,_BAUD_)  - Mantissa_MUL100(_PCLK_,_BAUD_)) * 16 )
+#define DIV_Fraction(_PCLK_,_BAUD_)            	 (uint32_t) (( USARTDIV_Mul100(_PCLK_,_BAUD_)  - Mantissa_MUL100(_PCLK_,_BAUD_)) * 16/100 )
 #define USART_BRR_Register(_PCLK_,_BAUD_)        ( (Mantissa(_PCLK_,_BAUD_)) <<4 ) | ( (DIV_Fraction(_PCLK_,_BAUD_)) & 0xF)
 enum Polling_Mechanism{
 	Enable,
@@ -49,7 +49,7 @@ typedef struct{
 	uint8_t StopBits;				//#of stop bits @ref USART_StopBits_Define
 	uint8_t HWFlowCtl;				//Hardware Flow Control @ref USART_HwFlowCtl_Define
 	uint8_t IRQ_Enable;				//Enable Disable UART IR @ref USART_IRQ_Enable_Define
-	void (*P_IRQ_CallBack)(enum UART_IRQ_Event  flag);  //@ref UART_IRQ_Event
+	void (*P_IRQ_CallBack)();  //@ref UART_IRQ_Event
 }UART_Config_t;
 
 /*

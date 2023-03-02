@@ -21,11 +21,13 @@ void Clock_Init()
 	RCC_AFIO_CLK_EN();
 }
 uint16_t ch;
-void UART_IRQ_Callback(enum UART_IRQ_Event flag){
+void UART_IRQ_Callback(){
 	MCAL_USART_Recieve(USART1, &ch, Disable);
 	MCAL_USART_Send(USART1, &ch, Enable);
 
 }
+
+
 
 int main(void)
 {
@@ -52,3 +54,4 @@ int main(void)
 
 	}
 }
+
