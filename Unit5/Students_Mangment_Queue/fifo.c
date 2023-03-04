@@ -4,10 +4,13 @@
  *  Created on: 31 Aug 2021
  *      Author: hassan
  */
-#include"fifo.h"
+#include "fifo.h" 
+#include <stdint.h>
+#define MAX_LINE_LENGTH 100
 Ssinfo s[15];
 FIFO_Buf_t Students_DB;
-FIFO_Buf_t *Students_Queue=&Students_DB;
+FIFO_Buf_t *Students_Queue=&Students_DB; 
+
 void Students_DB_Init(unsigned int length){
 
 	Students_Queue->base = s;
@@ -15,6 +18,87 @@ void Students_DB_Init(unsigned int length){
 	Students_Queue->tail = s;
 	Students_Queue->length = length;
 	Students_Queue->count = 0;
+
+}
+int Add_Students_fromFile(FILE    *textfile){
+	// FILE    *textfile;
+    uint8_t    StudentRecord[MAX_LINE_LENGTH];
+	uint8_t *itr;
+	uint8_t tokens[9][10];
+	uint8_t r=0,c=0;
+
+    // textfile = fopen("readme.txt", "r");
+    if(textfile == NULL)
+        return 1;
+     
+    while(fgets(StudentRecord, MAX_LINE_LENGTH, textfile)){
+		c=0;
+		r=0;
+		// tokens[r][c]=*StudentRecord;
+		// c++;
+		itr =StudentRecord;
+		for (uint8_t i=0;i<MAX_LINE_LENGTH;i++){
+			if (*(itr+i)==' '){
+				tokens[r][c]='\0';
+				c=0;
+				r++;
+				if (r==8)
+				break;
+			}else{
+				tokens[r][c]=*(itr+i);
+				c++;
+			}
+		}
+        	int flag=0;
+	int j =atoi(tokens[0]);
+	struct sinfo* search=Students_Queue->base;
+	while(search != Students_Queue->head){
+		if(search->roll != j){
+			search++;
+		}else {
+			flag =1;
+			DPRINTF("\nThe Roll Number Already Exist ");
+			break;
+		}
+	}
+	//Unique Roll Number O r An empty Database
+	if(flag == 0 ){
+		Students_Queue->head->roll = atoi( tokens[0]);
+		// DPRINTF("Enter The First Name: ");
+		strcpy(Students_Queue->head->fname , tokens[1]);
+		// DPRINTF("Enter The Second Name: ");
+		strcpy(Students_Queue->head->lname , tokens[2]);
+
+		// DPRINTF("Enter The GPA: ");
+		Students_Queue->head->GPA = atof(tokens[3]);
+		// DPRINTF("Enter The IDs Of Registered Courses: ");
+		// DPRINTF("\nEnter ID of Course 1: ");
+		Students_Queue->head->cid[0] = atoi( tokens[4] );
+		// DPRINTF("Enter ID of Course 2: ");
+		Students_Queue->head->cid[1] = atoi( tokens[5] );
+		// DPRINTF("Enter ID of Course 3: ");
+		Students_Queue->head->cid[2] = atoi( tokens[6] );
+		// DPRINTF("Enter ID of Course 4: ");
+		Students_Queue->head->cid[3] = atoi( tokens[7] );
+		// DPRINTF("Enter ID of Course 5: ");
+		Students_Queue->head->cid[4] = atoi(tokens[8]);
+
+		Students_Queue->count++;
+
+		if(Students_Queue->head == (Students_Queue->base + Students_Queue->length * sizeof(struct sinfo)))
+			Students_Queue->head = Students_Queue->base;
+		else
+			Students_Queue->head++;
+		DPRINTF("\n[INFO] Student Details Are Added Successfully ");
+		DPRINTF("\n[INFO] Students Number IS %d ",Students_Queue->count);
+	}
+	
+    }
+     
+    fclose(textfile);
+	return 1;
+
+
 
 }
 void Add_Student_M(){
@@ -31,6 +115,7 @@ void Add_Student_M(){
 		}else {
 			flag =1;
 			DPRINTF("\nThe Roll Number Already Exist ");
+			break;
 		}
 	}
 	//Unique Roll Number O r An empty Database

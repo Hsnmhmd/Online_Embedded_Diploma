@@ -6,12 +6,12 @@
  */
 
 
-#include"fifo.h"
+#include "fifo.h"
 //struct sinfo s[50];
 void setup(){
 	Students_DB_Init(15);
 }
-
+FILE    *textfile;
 
 int main(){
 	setup();
@@ -26,6 +26,8 @@ int main(){
 		DPRINTF("\n 6: View Students in A Sepecific Course ");
 		DPRINTF("\n 7: View Student With Roll Number");
 		DPRINTF("\n 8: View All Students In Database");
+		
+		DPRINTF("\n 9: Enter Students from text file");
 
 		DPRINTF("\n Option Number: ");
 		gets(temp);
@@ -51,6 +53,11 @@ int main(){
 			break;
 		case 8:
 			View_Students();
+			break;
+		case 9:
+			
+			textfile = fopen("Students_File.txt", "r");
+			Add_Students_fromFile(textfile);
 			break;
 		default:
 			DPRINTF("\n Wrong Choise");

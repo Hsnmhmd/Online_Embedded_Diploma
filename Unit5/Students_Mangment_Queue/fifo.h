@@ -39,6 +39,7 @@ typedef struct{
 }FIFO_Buf_t;
 
 /*FIFO APIs*/
+int Add_Students_fromFile(FILE    *textfile);
 void Students_DB_Init(unsigned int length);
 void Add_Student_M();
 void View_r_Student();
