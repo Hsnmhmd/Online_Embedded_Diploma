@@ -15,12 +15,15 @@
 //-----------------------------
 //CONFIG (structures)
 typedef struct{
-	uint8_t GPIO_Mode;		/*Specifies The Operation Mode for The Pin
-	 	 	 	 	 	 	  And Can be valued of @ref GPIO_MODE_Define*/
-	uint8_t GPIO_Pin_Number;
+	uint8_t GPIO_Mode;			/*Specifies The Operation Mode for The Pin
+	 	 	 	 	 	 	  	  And Can be valued of @ref GPIO_MODE_Define*/
+	uint8_t GPIO_Pin_Number;	/*Specifies The The Pin Number
+	 	 	 	 	 	 	  	  And Can be valued of @ref GPIO_Pin_Define*/
 
 }GPIO_PinConfig_t;
 //Macros Configuration References
+#define GPIO_PIN_SET 		1
+#define GPIO_PIN_RESET 		0
 //-----------------------------
 /*@ref Module_REF_NAME_define
 */
@@ -57,8 +60,10 @@ These bits are written by software to configure the corresponding I/O port.
 11: Output mode, max speed 50 MH*/
 #define GPIO_MODE_ANALOG			0x00u	//ANALOG Mode
 #define GPIO_MODE_INPUT_F			0x04u	//INPUT Floating
-#define GPIO_MODE_INPUT_PP			0x08u	//Input Pull_UP
-#define GPIO_MODE_INPUT_PD			0x08u	//INPUT_Pull_Down
+#define GPIO_MODE_INPUT_PU			0x08u	//Input Pull_UP
+#define GPIO_MODE_INPUT_PD			0x18u	//INPUT_Pull_Down   it is supposed to be same value as Pull_Up but should be different
+											// Because i will check its value to configure odr and only the least significant
+											// Nibble is taken into consideration because of the mask
 #define GPIO_MODE_OUTPUT_PP_10M		0x01u	//OUTput_push_pull_10M
 #define GPIO_MODE_OUTPUT_OD_10M		0x05u	//OUTput_OPEN_DRAIN_10M
 #define GPIO_MODE_AF_PP_10M			0x09u	//ALTERNATIVE_FUNCTION_OUTPUT_PUSH_PULL_10M
@@ -71,5 +76,24 @@ These bits are written by software to configure the corresponding I/O port.
 #define GPIO_MODE_OUTPUT_OD_50M		0x07u	//OUTput_OPEN_DRAIN_50M
 #define GPIO_MODE_AF_PP_50M			0x0Bu	//ALTERNATIVE_FUNCTION_OUTPUT_PUSH_PULL_50M
 #define GPIO_MODE_AF_OD_50M			0x0Fu	//ALTERNATIVE_FUNCTION_OUTPUT_OPEN_DRAIN_50M
+//================================================================================
+//================================================================================
+/*@ref GPIO_Pin_Define*/
+#define GPIO_Pin_0			0x00u
+#define GPIO_Pin_1			0x01u
+#define GPIO_Pin_2			0x02u
+#define GPIO_Pin_3			0x03u
+#define GPIO_Pin_4			0x04u
+#define GPIO_Pin_5			0x05u
+#define GPIO_Pin_6			0x06u
+#define GPIO_Pin_7			0x07u
+#define GPIO_Pin_8			0x08u
+#define GPIO_Pin_9			0x09u
+#define GPIO_Pin_10			0x0Au
+#define GPIO_Pin_11			0x0Bu
+#define GPIO_Pin_12			0x0Cu
+#define GPIO_Pin_13			0x0Du
+#define GPIO_Pin_14			0x0Eu
+#define GPIO_Pin_15			0x0Fu
 //================================================================================
 #endif /* INC_STM32_F103C6_GPIO_DRIVER_H_ */

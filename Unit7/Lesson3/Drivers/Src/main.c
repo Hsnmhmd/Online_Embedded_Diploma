@@ -8,6 +8,9 @@
 #include"Stm32_F103C6_gpio_driver.h"
 typedef volatile unsigned int vuint32_t;
 #include<stdio.h>
+#include"lcd.h"
+#include"keypad.h"
+
 
 GPIO_PinConfig_t GPIOA13={GPIO_MODE_INPUT_F,13};
 GPIO_PinConfig_t GPIOA1={GPIO_MODE_INPUT_F,1};

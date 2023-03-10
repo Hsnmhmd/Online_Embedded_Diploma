@@ -60,8 +60,10 @@ These bits are written by software to configure the corresponding I/O port.
 11: Output mode, max speed 50 MH*/
 #define GPIO_MODE_ANALOG			0x00u	//ANALOG Mode
 #define GPIO_MODE_INPUT_F			0x04u	//INPUT Floating
-#define GPIO_MODE_INPUT_PP			0x08u	//Input Pull_UP
-#define GPIO_MODE_INPUT_PD			0x08u	//INPUT_Pull_Down
+#define GPIO_MODE_INPUT_PU			0x08u	//Input Pull_UP
+#define GPIO_MODE_INPUT_PD			0x18u	//INPUT_Pull_Down   it is supposed to be same value as Pull_Up but should be different
+											// Because i will check its value to configure odr and only the least significant
+											// Nibble is taken into consideration because of the mask
 #define GPIO_MODE_OUTPUT_PP_10M		0x01u	//OUTput_push_pull_10M
 #define GPIO_MODE_OUTPUT_OD_10M		0x05u	//OUTput_OPEN_DRAIN_10M
 #define GPIO_MODE_AF_PP_10M			0x09u	//ALTERNATIVE_FUNCTION_OUTPUT_PUSH_PULL_10M

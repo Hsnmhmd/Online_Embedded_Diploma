@@ -288,3 +288,2326 @@ arm-none-eabi-size   Drivers.elf
    1012	     24	   1568	   2604	    a2c	Drivers.elf
 Finished building: default.size.stdout
  
+01:25:59 **** Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-size   Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1012	     24	   1568	   2604	    a2c	Drivers.elf
+Finished building: default.size.stdout
+ 
+02:03:43 **** Clean-only build of configuration Debug for project Drivers ****
+make -j4 clean 
+rm -rf *
+ 
+02:03:44 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../Stm32f103c6_Drivers/Stm32_F103C6_gpio_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Stm32f103c6_Drivers/Stm32_F103C6_gpio_driver.d" -MT"Stm32f103c6_Drivers/Stm32_F103C6_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Stm32f103c6_Drivers/Stm32_F103C6_gpio_driver.o"
+arm-none-eabi-gcc -gdwarf-2 -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc -gdwarf-2 "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -gdwarf-2 "../HAL/keypad.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/keypad.d" -MT"HAL/keypad.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/keypad.o"
+arm-none-eabi-gcc -gdwarf-2 "../HAL/lcd.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/lcd.d" -MT"HAL/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/lcd.o"
+../HAL/lcd.c: In function 'LCD_GPIO_init':
+../HAL/lcd.c:18:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = RS_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:19:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:19:21: error: 'GPIO_MODE_OUTPUT_PP' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_PP'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_PP
+../HAL/lcd.c:19:21: note: each undeclared identifier is reported only once for each function it appears in
+In file included from ../HAL/keypad.c:8:0:
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:18:12: error: 'GPIO_PIN_0' undeclared here (not in a function); did you mean 'GPIO_Pin_0'?
+ #define R0 GPIO_PIN_0
+            ^
+../HAL/keypad.c:10:22: note: in expansion of macro 'R0'
+ int Key_padRow[] = { R0, R1, R2, R3 }; //rows of the keypad
+                      ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:19:12: error: 'GPIO_PIN_1' undeclared here (not in a function); did you mean 'GPIO_PIN_0'?
+ #define R1 GPIO_PIN_1
+            ^
+../HAL/keypad.c:10:26: note: in expansion of macro 'R1'
+ int Key_padRow[] = { R0, R1, R2, R3 }; //rows of the keypad
+                          ^~
+../HAL/lcd.c:20:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:20:12: error: 'GPIO_PIN_3' undeclared here (not in a function); did you mean 'GPIO_PIN_1'?
+ #define R2 GPIO_PIN_3
+            ^
+../HAL/keypad.c:10:30: note: in expansion of macro 'R2'
+ int Key_padRow[] = { R0, R1, R2, R3 }; //rows of the keypad
+                              ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:21:12: error: 'GPIO_PIN_4' undeclared here (not in a function); did you mean 'GPIO_PIN_3'?
+ #define R3 GPIO_PIN_4
+            ^
+../HAL/keypad.c:10:34: note: in expansion of macro 'R3'
+ int Key_padRow[] = { R0, R1, R2, R3 }; //rows of the keypad
+                                  ^~
+../HAL/lcd.c:20:29: error: 'GPIO_SPEED_10M' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+                             ^~~~~~~~~~~~~~
+                             GPIO_Pin_10
+../HAL/lcd.c:23:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = RW_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:24:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:25:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:28:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = EN_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:29:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:30:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:35:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:35:26: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+                          ^~~~~~~~~~
+                          GPIO_Pin_0
+../HAL/lcd.c:36:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:37:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:40:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:40:26: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+                          ^~~~~~~~~~
+                          GPIO_PIN_0
+../HAL/lcd.c:41:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:42:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:45:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:45:26: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+                          ^~~~~~~~~~
+                          GPIO_PIN_1
+../HAL/lcd.c:46:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:47:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:50:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:50:26: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+                          ^~~~~~~~~~
+                          GPIO_PIN_2
+../HAL/lcd.c:51:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:52:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:55:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:55:26: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+                          ^~~~~~~~~~
+                          GPIO_PIN_3
+../HAL/lcd.c:56:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:57:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:22:12: error: 'GPIO_PIN_5' undeclared here (not in a function); did you mean 'GPIO_PIN_4'?
+ #define C0 GPIO_PIN_5
+            ^
+../HAL/keypad.c:11:22: note: in expansion of macro 'C0'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                      ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:22:12: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+ #define C0 GPIO_PIN_5
+            ^
+../HAL/keypad.c:11:22: note: in expansion of macro 'C0'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                      ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:22:12: note: (near initialization for 'Key_padCol[0]')
+ #define C0 GPIO_PIN_5
+            ^
+../HAL/keypad.c:11:22: note: in expansion of macro 'C0'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                      ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:22:12: error: initializer element is not constant
+ #define C0 GPIO_PIN_5
+            ^
+../HAL/keypad.c:11:22: note: in expansion of macro 'C0'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                      ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:22:12: note: (near initialization for 'Key_padCol[0]')
+ #define C0 GPIO_PIN_5
+            ^
+../HAL/keypad.c:11:22: note: in expansion of macro 'C0'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                      ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:23:12: error: 'GPIO_PIN_6' undeclared here (not in a function); did you mean 'GPIO_PIN_5'?
+ #define C1 GPIO_PIN_6
+            ^
+../HAL/keypad.c:11:26: note: in expansion of macro 'C1'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                          ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:23:12: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+ #define C1 GPIO_PIN_6
+            ^
+../HAL/keypad.c:11:26: note: in expansion of macro 'C1'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                          ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:23:12: note: (near initialization for 'Key_padCol[1]')
+ #define C1 GPIO_PIN_6
+            ^
+../HAL/keypad.c:11:26: note: in expansion of macro 'C1'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                          ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:23:12: error: initializer element is not constant
+ #define C1 GPIO_PIN_6
+            ^
+../HAL/keypad.c:11:26: note: in expansion of macro 'C1'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                          ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:23:12: note: (near initialization for 'Key_padCol[1]')
+ #define C1 GPIO_PIN_6
+            ^
+../HAL/keypad.c:11:26: note: in expansion of macro 'C1'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                          ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:24:12: error: 'GPIO_PIN_7' undeclared here (not in a function); did you mean 'GPIO_PIN_6'?
+ #define C2 GPIO_PIN_7
+            ^
+../HAL/keypad.c:11:30: note: in expansion of macro 'C2'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                              ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:24:12: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+ #define C2 GPIO_PIN_7
+            ^
+../HAL/keypad.c:11:30: note: in expansion of macro 'C2'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                              ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:24:12: note: (near initialization for 'Key_padCol[2]')
+ #define C2 GPIO_PIN_7
+            ^
+../HAL/keypad.c:11:30: note: in expansion of macro 'C2'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                              ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:24:12: error: initializer element is not constant
+ #define C2 GPIO_PIN_7
+            ^
+../HAL/keypad.c:11:30: note: in expansion of macro 'C2'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                              ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:24:12: note: (near initialization for 'Key_padCol[2]')
+ #define C2 GPIO_PIN_7
+            ^
+../HAL/keypad.c:11:30: note: in expansion of macro 'C2'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                              ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:25:12: error: 'GPIO_PIN_8' undeclared here (not in a function); did you mean 'GPIO_PIN_7'?
+ #define C3 GPIO_PIN_8
+            ^
+../HAL/keypad.c:11:34: note: in expansion of macro 'C3'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                                  ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:25:12: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+ #define C3 GPIO_PIN_8
+            ^
+../HAL/keypad.c:11:34: note: in expansion of macro 'C3'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                                  ^~
+../HAL/lcd.c:60:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:60:26: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+                          ^~~~~~~~~~
+                          GPIO_PIN_4
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:25:12: note: (near initialization for 'Key_padCol[3]')
+ #define C3 GPIO_PIN_8
+            ^
+../HAL/keypad.c:11:34: note: in expansion of macro 'C3'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                                  ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:25:12: error: initializer element is not constant
+ #define C3 GPIO_PIN_8
+            ^
+../HAL/keypad.c:11:34: note: in expansion of macro 'C3'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                                  ^~
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:25:12: note: (near initialization for 'Key_padCol[3]')
+ #define C3 GPIO_PIN_8
+            ^
+../HAL/keypad.c:11:34: note: in expansion of macro 'C3'
+ int Key_padCol[] = { C0, C1, C2, C3 }; //columns
+                                  ^~
+../HAL/keypad.c: In function 'Keypad_init':
+../HAL/keypad.c:26:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = R0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:26:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_PinNumber = R0;
+  ^~~~~~
+../HAL/keypad.c:27:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:61:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:62:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:65:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:65:26: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+                          ^~~~~~~~~~
+                          GPIO_PIN_5
+../HAL/lcd.c:66:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:67:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:70:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:70:26: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+                          ^~~~~~~~~~
+                          GPIO_PIN_6
+../HAL/lcd.c:71:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:72:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:76:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_7'?
+  MCAL_GPIO_WritePin(LCD_CTRL, EN_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_PIN_7
+../HAL/lcd.c: In function 'LCD_lcd_kick':
+../HAL/lcd.c:87:42: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+  MCAL_GPIO_WritePin(LCD_CTRL, EN_SWITCH, GPIO_PIN_SET);
+                                          ^~~~~~~~~~~~
+                                          GPIO_Pin_12
+../HAL/lcd.c:89:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  MCAL_GPIO_WritePin(LCD_CTRL, EN_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_PIN_SET
+../HAL/lcd.c: In function 'LCD_check_lcd_isbusy':
+../HAL/lcd.c:123:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:123:26: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+                          ^~~~~~~~~~
+                          GPIO_Pin_0
+../HAL/lcd.c:124:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:124:21: error: 'GPIO_MODE_INPUT_FLO' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_F'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_F
+../HAL/lcd.c:127:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:127:26: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+                          ^~~~~~~~~~
+                          GPIO_PIN_0
+../HAL/lcd.c:128:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:131:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:131:26: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+                          ^~~~~~~~~~
+                          GPIO_PIN_1
+../HAL/lcd.c:132:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:135:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:135:26: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+                          ^~~~~~~~~~
+                          GPIO_PIN_2
+../HAL/lcd.c:136:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:139:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:139:26: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+                          ^~~~~~~~~~
+                          GPIO_PIN_3
+../HAL/lcd.c:140:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:143:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:143:26: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+                          ^~~~~~~~~~
+                          GPIO_PIN_4
+../HAL/lcd.c:144:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:147:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:147:26: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+                          ^~~~~~~~~~
+                          GPIO_PIN_5
+../HAL/lcd.c:148:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:151:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:151:26: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+                          ^~~~~~~~~~
+                          GPIO_PIN_6
+../HAL/lcd.c:152:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:155:42: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_7'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RW_SWITCH, GPIO_PIN_SET);
+                                          ^~~~~~~~~~~~
+                                          GPIO_PIN_7
+../HAL/lcd.c:156:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RS_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_PIN_SET
+../HAL/lcd.c: In function 'LCD_WRITE_COMMAND':
+../HAL/lcd.c:173:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RW_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_Pin_12
+../HAL/lcd.c: In function 'LCD_WRITE_CHAR':
+../HAL/lcd.c:187:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RW_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_Pin_12
+../HAL/lcd.c:188:42: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_RESET'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RS_SWITCH, GPIO_PIN_SET);
+                                          ^~~~~~~~~~~~
+                                          GPIO_PIN_RESET
+../HAL/keypad.c:27:21: error: 'GPIO_MODE_OUTPUT_PP' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_PP'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_PP
+../HAL/keypad.c:27:21: note: each undeclared identifier is reported only once for each function it appears in
+../HAL/keypad.c:27:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+  ^~~~~~
+../HAL/keypad.c:28:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:28:29: error: 'GPIO_SPEED_10M' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+                             ^~~~~~~~~~~~~~
+                             GPIO_Pin_10
+../HAL/keypad.c:28:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+  ^~~~~~
+../HAL/keypad.c:31:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = R1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:31:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_PinNumber = R1;
+  ^~~~~~
+../HAL/keypad.c:32:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:32:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+  ^~~~~~
+../HAL/keypad.c:33:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:33:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+  ^~~~~~
+../HAL/keypad.c:36:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = R2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:36:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_PinNumber = R2;
+  ^~~~~~
+../HAL/keypad.c:37:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:37:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+  ^~~~~~
+../HAL/keypad.c:38:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:38:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+  ^~~~~~
+../HAL/keypad.c:41:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = R3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:41:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_PinNumber = R3;
+  ^~~~~~
+../HAL/keypad.c:42:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:42:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+  ^~~~~~
+../HAL/keypad.c:43:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:43:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+  ^~~~~~
+../HAL/keypad.c:46:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = C0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:46:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_PinNumber = C0;
+  ^~~~~~
+../HAL/keypad.c:47:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:47:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+  ^~~~~~
+../HAL/keypad.c:48:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:48:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+  ^~~~~~
+../HAL/keypad.c:51:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = C1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:51:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_PinNumber = C1;
+  ^~~~~~
+../HAL/keypad.c:52:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:52:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+  ^~~~~~
+../HAL/keypad.c:53:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:53:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+  ^~~~~~
+../HAL/keypad.c:56:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = C2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:56:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_PinNumber = C2;
+  ^~~~~~
+../HAL/keypad.c:57:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:57:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+  ^~~~~~
+../HAL/keypad.c:58:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:58:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+  ^~~~~~
+../HAL/keypad.c:61:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = C3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:61:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_PinNumber = C3;
+  ^~~~~~
+../HAL/keypad.c:62:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:62:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+  ^~~~~~
+../HAL/keypad.c:63:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:63:2: warning: statement with no effect [-Wunused-value]
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+  ^~~~~~
+../HAL/keypad.c: In function 'Keypad_getkey':
+../HAL/keypad.c:75:50: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_8'?
+   MCAL_GPIO_WritePin(KEYPAD_PORT, Key_padCol[0], GPIO_PIN_SET);
+                                                  ^~~~~~~~~~~~
+                                                  GPIO_PIN_8
+../HAL/keypad.c:75:50: warning: passing argument 3 of 'MCAL_GPIO_WritePin' makes integer from pointer without a cast [-Wint-conversion]
+In file included from D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:13:0,
+                 from ../HAL/keypad.c:8:
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc/Stm32_F103C6_gpio_driver.h:38:6: note: expected 'uint8_t {aka unsigned char}' but argument is of type 'int *'
+ void MCAL_GPIO_WritePin(GPIO_t *GPIOx, uint8_t Pin_Number,uint8_t value);
+      ^~~~~~~~~~~~~~~~~~
+../HAL/keypad.c:76:50: warning: passing argument 3 of 'MCAL_GPIO_WritePin' makes integer from pointer without a cast [-Wint-conversion]
+   MCAL_GPIO_WritePin(KEYPAD_PORT, Key_padCol[1], GPIO_PIN_SET);
+                                                  ^~~~~~~~~~~~
+In file included from D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:13:0,
+                 from ../HAL/keypad.c:8:
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc/Stm32_F103C6_gpio_driver.h:38:6: note: expected 'uint8_t {aka unsigned char}' but argument is of type 'int *'
+ void MCAL_GPIO_WritePin(GPIO_t *GPIOx, uint8_t Pin_Number,uint8_t value);
+      ^~~~~~~~~~~~~~~~~~
+../HAL/keypad.c:77:50: warning: passing argument 3 of 'MCAL_GPIO_WritePin' makes integer from pointer without a cast [-Wint-conversion]
+   MCAL_GPIO_WritePin(KEYPAD_PORT, Key_padCol[2], GPIO_PIN_SET);
+                                                  ^~~~~~~~~~~~
+In file included from D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:13:0,
+                 from ../HAL/keypad.c:8:
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc/Stm32_F103C6_gpio_driver.h:38:6: note: expected 'uint8_t {aka unsigned char}' but argument is of type 'int *'
+ void MCAL_GPIO_WritePin(GPIO_t *GPIOx, uint8_t Pin_Number,uint8_t value);
+      ^~~~~~~~~~~~~~~~~~
+../HAL/keypad.c:78:50: warning: passing argument 3 of 'MCAL_GPIO_WritePin' makes integer from pointer without a cast [-Wint-conversion]
+   MCAL_GPIO_WritePin(KEYPAD_PORT, Key_padCol[3], GPIO_PIN_SET);
+                                                  ^~~~~~~~~~~~
+In file included from D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:13:0,
+                 from ../HAL/keypad.c:8:
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc/Stm32_F103C6_gpio_driver.h:38:6: note: expected 'uint8_t {aka unsigned char}' but argument is of type 'int *'
+ void MCAL_GPIO_WritePin(GPIO_t *GPIOx, uint8_t Pin_Number,uint8_t value);
+      ^~~~~~~~~~~~~~~~~~
+../HAL/keypad.c:79:50: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+   MCAL_GPIO_WritePin(KEYPAD_PORT, Key_padCol[i], GPIO_PIN_RESET);
+                                                  ^~~~~~~~~~~~~~
+                                                  GPIO_PIN_SET
+../HAL/keypad.c:79:50: warning: passing argument 3 of 'MCAL_GPIO_WritePin' makes integer from pointer without a cast [-Wint-conversion]
+In file included from D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC/keypad.h:13:0,
+                 from ../HAL/keypad.c:8:
+D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc/Stm32_F103C6_gpio_driver.h:38:6: note: expected 'uint8_t {aka unsigned char}' but argument is of type 'int *'
+ void MCAL_GPIO_WritePin(GPIO_t *GPIOx, uint8_t Pin_Number,uint8_t value);
+      ^~~~~~~~~~~~~~~~~~
+../HAL/keypad.c:81:8: warning: implicit declaration of function 'MCAL_GPIO_ReadPin'; did you mean 'MCAL_GPIO_ReadPIN'? [-Wimplicit-function-declaration]
+    if (MCAL_GPIO_ReadPin(KEYPAD_PORT, Key_padRow[j]) == 0) {
+        ^~~~~~~~~~~~~~~~~
+        MCAL_GPIO_ReadPIN
+make: *** [HAL/subdir.mk:23: HAL/lcd.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [HAL/subdir.mk:21: HAL/keypad.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:04:17 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../HAL/keypad.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/keypad.d" -MT"HAL/keypad.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/keypad.o"
+arm-none-eabi-gcc -gdwarf-2 "../HAL/lcd.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/lcd.d" -MT"HAL/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/lcd.o"
+../HAL/lcd.c: In function 'LCD_GPIO_init':
+../HAL/lcd.c:18:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = RS_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:19:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:19:21: error: 'GPIO_MODE_OUTPUT_PP' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_PP'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_PP
+../HAL/lcd.c:19:21: note: each undeclared identifier is reported only once for each function it appears in
+../HAL/lcd.c:20:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:20:29: error: 'GPIO_SPEED_10M' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+                             ^~~~~~~~~~~~~~
+                             GPIO_Pin_10
+../HAL/lcd.c:23:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = RW_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:24:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:25:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:28:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = EN_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:29:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:30:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c: In function 'Keypad_init':
+../HAL/lcd.c:35:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:35:26: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+                          ^~~~~~~~~~
+                          GPIO_Pin_0
+../HAL/lcd.c:36:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:26:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = R0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:37:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:40:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:40:26: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+                          ^~~~~~~~~~
+                          GPIO_PIN_0
+../HAL/lcd.c:41:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:42:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:27:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:45:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:45:26: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+                          ^~~~~~~~~~
+                          GPIO_PIN_1
+../HAL/lcd.c:46:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:47:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:50:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:50:26: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+                          ^~~~~~~~~~
+                          GPIO_PIN_2
+../HAL/keypad.c:27:21: error: 'GPIO_MODE_OUTPUT_PP' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_PP'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_PP
+../HAL/keypad.c:27:21: note: each undeclared identifier is reported only once for each function it appears in
+../HAL/keypad.c:28:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:51:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:52:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:55:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:28:29: error: 'GPIO_SPEED_10M' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+                             ^~~~~~~~~~~~~~
+                             GPIO_Pin_10
+../HAL/keypad.c:31:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = R1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:32:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:33:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:36:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = R2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:37:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:38:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:55:26: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+                          ^~~~~~~~~~
+                          GPIO_PIN_3
+../HAL/lcd.c:56:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:57:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:60:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:60:26: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+                          ^~~~~~~~~~
+                          GPIO_PIN_4
+../HAL/lcd.c:61:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:41:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = R3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:42:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:43:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:62:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:65:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:65:26: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+                          ^~~~~~~~~~
+                          GPIO_PIN_5
+../HAL/keypad.c:46:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = C0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:66:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:47:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:48:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:51:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = C1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:52:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:53:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:67:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:56:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = C2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:70:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:57:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:58:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:70:26: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+                          ^~~~~~~~~~
+                          GPIO_PIN_6
+../HAL/lcd.c:71:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:61:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = C3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:72:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:76:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_7'?
+  MCAL_GPIO_WritePin(LCD_CTRL, EN_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_PIN_7
+../HAL/keypad.c:62:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:63:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c: In function 'LCD_lcd_kick':
+../HAL/lcd.c:87:42: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+  MCAL_GPIO_WritePin(LCD_CTRL, EN_SWITCH, GPIO_PIN_SET);
+                                          ^~~~~~~~~~~~
+                                          GPIO_Pin_12
+../HAL/lcd.c:89:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  MCAL_GPIO_WritePin(LCD_CTRL, EN_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_PIN_SET
+../HAL/keypad.c: In function 'Keypad_getkey':
+../HAL/keypad.c:75:50: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+   MCAL_GPIO_WritePin(KEYPAD_PORT, Key_padCol[0], GPIO_PIN_SET);
+                                                  ^~~~~~~~~~~~
+                                                  GPIO_Pin_12
+../HAL/lcd.c: In function 'LCD_check_lcd_isbusy':
+../HAL/lcd.c:123:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:79:50: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+   MCAL_GPIO_WritePin(KEYPAD_PORT, Key_padCol[i], GPIO_PIN_RESET);
+                                                  ^~~~~~~~~~~~~~
+                                                  GPIO_PIN_SET
+../HAL/lcd.c:123:26: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+                          ^~~~~~~~~~
+                          GPIO_Pin_0
+../HAL/keypad.c:81:8: warning: implicit declaration of function 'MCAL_GPIO_ReadPin'; did you mean 'MCAL_GPIO_ReadPIN'? [-Wimplicit-function-declaration]
+    if (MCAL_GPIO_ReadPin(KEYPAD_PORT, Key_padRow[j]) == 0) {
+        ^~~~~~~~~~~~~~~~~
+        MCAL_GPIO_ReadPIN
+../HAL/lcd.c:124:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:124:21: error: 'GPIO_MODE_INPUT_FLO' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_F'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_F
+../HAL/lcd.c:127:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:127:26: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+                          ^~~~~~~~~~
+                          GPIO_PIN_0
+../HAL/lcd.c:128:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:131:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:131:26: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+                          ^~~~~~~~~~
+                          GPIO_PIN_1
+../HAL/lcd.c:132:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:135:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:135:26: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+                          ^~~~~~~~~~
+                          GPIO_PIN_2
+../HAL/lcd.c:136:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:139:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:139:26: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+                          ^~~~~~~~~~
+                          GPIO_PIN_3
+../HAL/lcd.c:140:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:143:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+make: *** [HAL/subdir.mk:21: HAL/keypad.o] Error 1
+make: *** Waiting for unfinished jobs....
+../HAL/lcd.c:143:26: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+                          ^~~~~~~~~~
+                          GPIO_PIN_4
+../HAL/lcd.c:144:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:147:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:147:26: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+                          ^~~~~~~~~~
+                          GPIO_PIN_5
+../HAL/lcd.c:148:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:151:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:151:26: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+                          ^~~~~~~~~~
+                          GPIO_PIN_6
+../HAL/lcd.c:152:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:155:42: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_7'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RW_SWITCH, GPIO_PIN_SET);
+                                          ^~~~~~~~~~~~
+                                          GPIO_PIN_7
+../HAL/lcd.c:156:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RS_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_PIN_SET
+../HAL/lcd.c: In function 'LCD_WRITE_COMMAND':
+../HAL/lcd.c:173:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RW_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_Pin_12
+../HAL/lcd.c: In function 'LCD_WRITE_CHAR':
+../HAL/lcd.c:187:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RW_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_Pin_12
+../HAL/lcd.c:188:42: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_RESET'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RS_SWITCH, GPIO_PIN_SET);
+                                          ^~~~~~~~~~~~
+                                          GPIO_PIN_RESET
+make: *** [HAL/subdir.mk:23: HAL/lcd.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:06:17 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../HAL/keypad.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/keypad.d" -MT"HAL/keypad.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/keypad.o"
+arm-none-eabi-gcc -gdwarf-2 "../HAL/lcd.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/lcd.d" -MT"HAL/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/lcd.o"
+../HAL/lcd.c: In function 'LCD_GPIO_init':
+../HAL/lcd.c:18:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = RS_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:19:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:19:21: error: 'GPIO_MODE_OUTPUT_PP' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_PP'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_PP
+../HAL/lcd.c:19:21: note: each undeclared identifier is reported only once for each function it appears in
+../HAL/lcd.c:20:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:20:29: error: 'GPIO_SPEED_10M' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+                             ^~~~~~~~~~~~~~
+                             GPIO_Pin_10
+../HAL/lcd.c:23:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = RW_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:24:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:25:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:28:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = EN_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:29:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:30:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:35:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:35:26: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+                          ^~~~~~~~~~
+                          GPIO_Pin_0
+../HAL/lcd.c:36:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:37:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:40:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:40:26: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+                          ^~~~~~~~~~
+                          GPIO_PIN_0
+../HAL/lcd.c:41:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:42:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:45:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:45:26: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+                          ^~~~~~~~~~
+                          GPIO_PIN_1
+../HAL/lcd.c:46:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:47:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:50:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:50:26: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+                          ^~~~~~~~~~
+                          GPIO_PIN_2
+../HAL/lcd.c:51:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:52:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:55:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:55:26: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+                          ^~~~~~~~~~
+                          GPIO_PIN_3
+../HAL/lcd.c:56:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:57:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:60:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:60:26: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+                          ^~~~~~~~~~
+                          GPIO_PIN_4
+../HAL/lcd.c:61:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:62:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:65:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:65:26: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+                          ^~~~~~~~~~
+                          GPIO_PIN_5
+../HAL/lcd.c:66:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:67:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:70:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:70:26: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+                          ^~~~~~~~~~
+                          GPIO_PIN_6
+../HAL/lcd.c:71:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:72:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:76:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_7'?
+  MCAL_GPIO_WritePin(LCD_CTRL, EN_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_PIN_7
+../HAL/lcd.c: In function 'LCD_lcd_kick':
+../HAL/lcd.c:87:42: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+  MCAL_GPIO_WritePin(LCD_CTRL, EN_SWITCH, GPIO_PIN_SET);
+                                          ^~~~~~~~~~~~
+                                          GPIO_Pin_12
+../HAL/lcd.c:89:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  MCAL_GPIO_WritePin(LCD_CTRL, EN_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_PIN_SET
+../HAL/lcd.c: In function 'LCD_check_lcd_isbusy':
+../HAL/lcd.c:123:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:123:26: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+                          ^~~~~~~~~~
+                          GPIO_Pin_0
+../HAL/lcd.c:124:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:124:21: error: 'GPIO_MODE_INPUT_FLO' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_F'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_F
+../HAL/lcd.c:127:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:127:26: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+                          ^~~~~~~~~~
+                          GPIO_PIN_0
+../HAL/lcd.c:128:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:131:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:131:26: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+                          ^~~~~~~~~~
+                          GPIO_PIN_1
+../HAL/lcd.c:132:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:135:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:135:26: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+                          ^~~~~~~~~~
+                          GPIO_PIN_2
+../HAL/lcd.c:136:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:139:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:139:26: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+                          ^~~~~~~~~~
+                          GPIO_PIN_3
+../HAL/lcd.c:140:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:143:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:143:26: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+                          ^~~~~~~~~~
+                          GPIO_PIN_4
+../HAL/lcd.c:144:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:147:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:147:26: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+                          ^~~~~~~~~~
+                          GPIO_PIN_5
+../HAL/lcd.c:148:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:151:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:151:26: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+                          ^~~~~~~~~~
+                          GPIO_PIN_6
+../HAL/lcd.c:152:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:155:42: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_7'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RW_SWITCH, GPIO_PIN_SET);
+                                          ^~~~~~~~~~~~
+                                          GPIO_PIN_7
+../HAL/lcd.c:156:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RS_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_PIN_SET
+../HAL/lcd.c: In function 'LCD_WRITE_COMMAND':
+../HAL/lcd.c:173:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RW_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_Pin_12
+../HAL/lcd.c: In function 'LCD_WRITE_CHAR':
+../HAL/lcd.c:187:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RW_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_Pin_12
+../HAL/keypad.c: In function 'Keypad_init':
+../HAL/keypad.c:34:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = R2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:35:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:35:21: error: 'GPIO_MODE_OUTPUT_PP' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_PP'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_PP
+../HAL/keypad.c:35:21: note: each undeclared identifier is reported only once for each function it appears in
+../HAL/keypad.c:36:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:36:29: error: 'GPIO_SPEED_10M' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+                             ^~~~~~~~~~~~~~
+                             GPIO_Pin_10
+../HAL/keypad.c:39:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = R3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:40:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:41:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:188:42: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_RESET'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RS_SWITCH, GPIO_PIN_SET);
+                                          ^~~~~~~~~~~~
+                                          GPIO_PIN_RESET
+../HAL/keypad.c:44:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = C0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:45:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:46:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:49:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = C1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:50:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:51:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:54:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = C2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:55:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:56:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c:59:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = C3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/keypad.c:60:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/keypad.c:61:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/keypad.c: In function 'Keypad_getkey':
+../HAL/keypad.c:73:50: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+   MCAL_GPIO_WritePin(KEYPAD_PORT, Key_padCol[0], GPIO_PIN_SET);
+                                                  ^~~~~~~~~~~~
+                                                  GPIO_Pin_12
+../HAL/keypad.c:77:50: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+   MCAL_GPIO_WritePin(KEYPAD_PORT, Key_padCol[i], GPIO_PIN_RESET);
+                                                  ^~~~~~~~~~~~~~
+                                                  GPIO_PIN_SET
+../HAL/keypad.c:79:8: warning: implicit declaration of function 'MCAL_GPIO_ReadPin'; did you mean 'MCAL_GPIO_ReadPIN'? [-Wimplicit-function-declaration]
+    if (MCAL_GPIO_ReadPin(KEYPAD_PORT, Key_padRow[j]) == 0) {
+        ^~~~~~~~~~~~~~~~~
+        MCAL_GPIO_ReadPIN
+make: *** [HAL/subdir.mk:23: HAL/lcd.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [HAL/subdir.mk:21: HAL/keypad.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:10:00 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../HAL/keypad.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/keypad.d" -MT"HAL/keypad.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/keypad.o"
+arm-none-eabi-gcc -gdwarf-2 "../HAL/lcd.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/lcd.d" -MT"HAL/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/lcd.o"
+../HAL/keypad.c: In function 'Keypad_getkey':
+../HAL/keypad.c:67:50: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+   MCAL_GPIO_WritePin(KEYPAD_PORT, Key_padCol[0], GPIO_PIN_SET);
+                                                  ^~~~~~~~~~~~
+                                                  GPIO_Pin_12
+../HAL/keypad.c:67:50: note: each undeclared identifier is reported only once for each function it appears in
+../HAL/keypad.c:71:50: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+   MCAL_GPIO_WritePin(KEYPAD_PORT, Key_padCol[i], GPIO_PIN_RESET);
+                                                  ^~~~~~~~~~~~~~
+                                                  GPIO_PIN_SET
+../HAL/keypad.c:73:8: warning: implicit declaration of function 'MCAL_GPIO_ReadPin'; did you mean 'MCAL_GPIO_ReadPIN'? [-Wimplicit-function-declaration]
+    if (MCAL_GPIO_ReadPin(KEYPAD_PORT, Key_padRow[j]) == 0) {
+        ^~~~~~~~~~~~~~~~~
+        MCAL_GPIO_ReadPIN
+../HAL/lcd.c: In function 'LCD_GPIO_init':
+../HAL/lcd.c:18:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = RS_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:19:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:19:21: error: 'GPIO_MODE_OUTPUT_PP' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_PP'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_PP
+../HAL/lcd.c:19:21: note: each undeclared identifier is reported only once for each function it appears in
+../HAL/lcd.c:20:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:20:29: error: 'GPIO_SPEED_10M' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+                             ^~~~~~~~~~~~~~
+                             GPIO_Pin_10
+../HAL/lcd.c:23:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = RW_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:24:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:25:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:28:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = EN_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:29:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:30:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:35:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:35:26: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+                          ^~~~~~~~~~
+                          GPIO_Pin_0
+../HAL/lcd.c:36:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:37:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:40:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:40:26: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+                          ^~~~~~~~~~
+                          GPIO_PIN_0
+../HAL/lcd.c:41:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:42:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:45:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:45:26: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+                          ^~~~~~~~~~
+                          GPIO_PIN_1
+../HAL/lcd.c:46:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:47:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:50:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:50:26: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+                          ^~~~~~~~~~
+                          GPIO_PIN_2
+../HAL/lcd.c:51:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:52:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:55:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:55:26: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+                          ^~~~~~~~~~
+                          GPIO_PIN_3
+../HAL/lcd.c:56:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:57:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:60:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:60:26: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+                          ^~~~~~~~~~
+                          GPIO_PIN_4
+../HAL/lcd.c:61:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:62:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:65:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:65:26: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+                          ^~~~~~~~~~
+                          GPIO_PIN_5
+../HAL/lcd.c:66:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:67:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:70:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:70:26: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+                          ^~~~~~~~~~
+                          GPIO_PIN_6
+../HAL/lcd.c:71:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:72:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:76:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_7'?
+  MCAL_GPIO_WritePin(LCD_CTRL, EN_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_PIN_7
+../HAL/lcd.c: In function 'LCD_lcd_kick':
+../HAL/lcd.c:87:42: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+  MCAL_GPIO_WritePin(LCD_CTRL, EN_SWITCH, GPIO_PIN_SET);
+                                          ^~~~~~~~~~~~
+                                          GPIO_Pin_12
+../HAL/lcd.c:89:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  MCAL_GPIO_WritePin(LCD_CTRL, EN_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_PIN_SET
+../HAL/lcd.c: In function 'LCD_check_lcd_isbusy':
+../HAL/lcd.c:123:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:123:26: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+                          ^~~~~~~~~~
+                          GPIO_Pin_0
+../HAL/lcd.c:124:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+make: *** [HAL/subdir.mk:21: HAL/keypad.o] Error 1
+../HAL/lcd.c:124:21: error: 'GPIO_MODE_INPUT_FLO' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_F'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_F
+../HAL/lcd.c:127:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:127:26: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+                          ^~~~~~~~~~
+                          GPIO_PIN_0
+../HAL/lcd.c:128:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:131:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:131:26: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+                          ^~~~~~~~~~
+                          GPIO_PIN_1
+../HAL/lcd.c:132:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:135:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:135:26: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+                          ^~~~~~~~~~
+                          GPIO_PIN_2
+../HAL/lcd.c:136:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:139:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:139:26: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+                          ^~~~~~~~~~
+                          GPIO_PIN_3
+../HAL/lcd.c:140:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:143:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+make: *** Waiting for unfinished jobs....
+../HAL/lcd.c:143:26: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+                          ^~~~~~~~~~
+                          GPIO_PIN_4
+../HAL/lcd.c:144:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:147:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:147:26: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+                          ^~~~~~~~~~
+                          GPIO_PIN_5
+../HAL/lcd.c:148:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:151:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:151:26: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+                          ^~~~~~~~~~
+                          GPIO_PIN_6
+../HAL/lcd.c:152:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:155:42: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_7'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RW_SWITCH, GPIO_PIN_SET);
+                                          ^~~~~~~~~~~~
+                                          GPIO_PIN_7
+../HAL/lcd.c:156:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RS_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_PIN_SET
+../HAL/lcd.c: In function 'LCD_WRITE_COMMAND':
+../HAL/lcd.c:173:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RW_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_Pin_12
+../HAL/lcd.c: In function 'LCD_WRITE_CHAR':
+../HAL/lcd.c:187:42: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_Pin_12'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RW_SWITCH, GPIO_PIN_RESET);
+                                          ^~~~~~~~~~~~~~
+                                          GPIO_Pin_12
+../HAL/lcd.c:188:42: error: 'GPIO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_RESET'?
+  MCAL_GPIO_WritePin(LCD_CTRL, RS_SWITCH, GPIO_PIN_SET);
+                                          ^~~~~~~~~~~~
+                                          GPIO_PIN_RESET
+make: *** [HAL/subdir.mk:23: HAL/lcd.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:12:41 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../Stm32f103c6_Drivers/Stm32_F103C6_gpio_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Stm32f103c6_Drivers/Stm32_F103C6_gpio_driver.d" -MT"Stm32f103c6_Drivers/Stm32_F103C6_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Stm32f103c6_Drivers/Stm32_F103C6_gpio_driver.o"
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 "../HAL/keypad.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/keypad.d" -MT"HAL/keypad.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/keypad.o"
+arm-none-eabi-gcc -gdwarf-2 "../HAL/lcd.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/lcd.d" -MT"HAL/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/lcd.o"
+../HAL/keypad.c: In function 'Keypad_getkey':
+../HAL/keypad.c:73:8: warning: implicit declaration of function 'MCAL_GPIO_ReadPin'; did you mean 'MCAL_GPIO_ReadPIN'? [-Wimplicit-function-declaration]
+    if (MCAL_GPIO_ReadPin(KEYPAD_PORT, Key_padRow[j]) == 0) {
+        ^~~~~~~~~~~~~~~~~
+        MCAL_GPIO_ReadPIN
+../HAL/lcd.c: In function 'LCD_GPIO_init':
+../HAL/lcd.c:18:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = RS_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:19:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:19:21: error: 'GPIO_MODE_OUTPUT_PP' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_PP'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_PP
+../HAL/lcd.c:19:21: note: each undeclared identifier is reported only once for each function it appears in
+../HAL/lcd.c:20:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:20:29: error: 'GPIO_SPEED_10M' undeclared (first use in this function); did you mean 'GPIO_Pin_10'?
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+                             ^~~~~~~~~~~~~~
+                             GPIO_Pin_10
+../HAL/lcd.c:23:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = RW_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:24:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:25:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:28:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = EN_SWITCH;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:29:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:30:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:35:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:35:26: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+                          ^~~~~~~~~~
+                          GPIO_Pin_0
+../HAL/lcd.c:36:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:37:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:40:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:40:26: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+                          ^~~~~~~~~~
+                          GPIO_PIN_0
+../HAL/lcd.c:41:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:42:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:45:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:45:26: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+                          ^~~~~~~~~~
+                          GPIO_PIN_1
+../HAL/lcd.c:46:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:47:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:50:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:50:26: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+                          ^~~~~~~~~~
+                          GPIO_PIN_2
+../HAL/lcd.c:51:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:52:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:55:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:55:26: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+                          ^~~~~~~~~~
+                          GPIO_PIN_3
+../HAL/lcd.c:56:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:57:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:60:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:60:26: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+                          ^~~~~~~~~~
+                          GPIO_PIN_4
+../HAL/lcd.c:61:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:62:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:65:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:65:26: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+                          ^~~~~~~~~~
+                          GPIO_PIN_5
+../HAL/lcd.c:66:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:67:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c:70:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:70:26: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+                          ^~~~~~~~~~
+                          GPIO_PIN_6
+../HAL/lcd.c:71:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_OUTPUT_PP;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:72:8: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_Output_Speed'
+  PinCfg.GPIO_Output_Speed = GPIO_SPEED_10M;
+        ^
+../HAL/lcd.c: In function 'LCD_check_lcd_isbusy':
+../HAL/lcd.c:123:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:123:26: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_0;
+                          ^~~~~~~~~~
+                          GPIO_Pin_0
+../HAL/lcd.c:124:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:124:21: error: 'GPIO_MODE_INPUT_FLO' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_F'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_F
+../HAL/lcd.c:127:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:127:26: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_1;
+                          ^~~~~~~~~~
+                          GPIO_PIN_0
+../HAL/lcd.c:128:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:131:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:131:26: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_2;
+                          ^~~~~~~~~~
+                          GPIO_PIN_1
+../HAL/lcd.c:132:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:135:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:135:26: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_3;
+                          ^~~~~~~~~~
+                          GPIO_PIN_2
+../HAL/lcd.c:136:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:139:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:139:26: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_4;
+                          ^~~~~~~~~~
+                          GPIO_PIN_3
+../HAL/lcd.c:140:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:143:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:143:26: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_5;
+                          ^~~~~~~~~~
+                          GPIO_PIN_4
+../HAL/lcd.c:144:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:147:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:147:26: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_6;
+                          ^~~~~~~~~~
+                          GPIO_PIN_5
+../HAL/lcd.c:148:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+../HAL/lcd.c:151:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_PinNumber'; did you mean 'GPIO_Pin_Number'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+         ^~~~~~~~~~~~~~
+         GPIO_Pin_Number
+../HAL/lcd.c:151:26: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_PinNumber = GPIO_PIN_7;
+                          ^~~~~~~~~~
+                          GPIO_PIN_6
+../HAL/lcd.c:152:9: error: 'GPIO_PinConfig_t {aka struct <anonymous>}' has no member named 'GPIO_MODE'; did you mean 'GPIO_Mode'?
+  PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
+         ^~~~~~~~~
+         GPIO_Mode
+make: *** [HAL/subdir.mk:23: HAL/lcd.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:15:55 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../HAL/lcd.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/lcd.d" -MT"HAL/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/lcd.o"
+../HAL/lcd.c: In function 'LCD_GPIO_init':
+../HAL/lcd.c:35:27: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_0;
+                           ^~~~~~~~~~
+                           GPIO_Pin_0
+../HAL/lcd.c:35:27: note: each undeclared identifier is reported only once for each function it appears in
+../HAL/lcd.c:40:27: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_1;
+                           ^~~~~~~~~~
+                           GPIO_PIN_0
+../HAL/lcd.c:45:27: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_2;
+                           ^~~~~~~~~~
+                           GPIO_PIN_1
+../HAL/lcd.c:50:27: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_3;
+                           ^~~~~~~~~~
+                           GPIO_PIN_2
+../HAL/lcd.c:55:27: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_4;
+                           ^~~~~~~~~~
+                           GPIO_PIN_3
+../HAL/lcd.c:60:27: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_5;
+                           ^~~~~~~~~~
+                           GPIO_PIN_4
+../HAL/lcd.c:65:27: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_6;
+                           ^~~~~~~~~~
+                           GPIO_PIN_5
+../HAL/lcd.c:70:27: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_7;
+                           ^~~~~~~~~~
+                           GPIO_PIN_6
+../HAL/lcd.c: In function 'LCD_check_lcd_isbusy':
+../HAL/lcd.c:123:27: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_0;
+                           ^~~~~~~~~~
+                           GPIO_Pin_0
+../HAL/lcd.c:124:21: error: 'GPIO_Mode_INPUT_FLO' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_F'?
+  PinCfg.GPIO_Mode = GPIO_Mode_INPUT_FLO;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_F
+../HAL/lcd.c:127:27: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_1;
+                           ^~~~~~~~~~
+                           GPIO_PIN_0
+../HAL/lcd.c:131:27: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_2;
+                           ^~~~~~~~~~
+                           GPIO_PIN_1
+../HAL/lcd.c:135:27: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_3;
+                           ^~~~~~~~~~
+                           GPIO_PIN_2
+../HAL/lcd.c:139:27: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_4;
+                           ^~~~~~~~~~
+                           GPIO_PIN_3
+../HAL/lcd.c:143:27: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_5;
+                           ^~~~~~~~~~
+                           GPIO_PIN_4
+../HAL/lcd.c:147:27: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_6;
+                           ^~~~~~~~~~
+                           GPIO_PIN_5
+../HAL/lcd.c:151:27: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_7;
+                           ^~~~~~~~~~
+                           GPIO_PIN_6
+make: *** [HAL/subdir.mk:23: HAL/lcd.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:16:39 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../HAL/lcd.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/lcd.d" -MT"HAL/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/lcd.o"
+../HAL/lcd.c: In function 'LCD_check_lcd_isbusy':
+../HAL/lcd.c:123:27: error: 'GPIO_PIN_0' undeclared (first use in this function); did you mean 'GPIO_Pin_0'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_0;
+                           ^~~~~~~~~~
+                           GPIO_Pin_0
+../HAL/lcd.c:123:27: note: each undeclared identifier is reported only once for each function it appears in
+../HAL/lcd.c:124:21: error: 'GPIO_Mode_INPUT_FLO' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_F'?
+  PinCfg.GPIO_Mode = GPIO_Mode_INPUT_FLO;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_F
+../HAL/lcd.c:127:27: error: 'GPIO_PIN_1' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_1;
+                           ^~~~~~~~~~
+                           GPIO_PIN_0
+../HAL/lcd.c:131:27: error: 'GPIO_PIN_2' undeclared (first use in this function); did you mean 'GPIO_PIN_1'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_2;
+                           ^~~~~~~~~~
+                           GPIO_PIN_1
+../HAL/lcd.c:135:27: error: 'GPIO_PIN_3' undeclared (first use in this function); did you mean 'GPIO_PIN_2'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_3;
+                           ^~~~~~~~~~
+                           GPIO_PIN_2
+../HAL/lcd.c:139:27: error: 'GPIO_PIN_4' undeclared (first use in this function); did you mean 'GPIO_PIN_3'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_4;
+                           ^~~~~~~~~~
+                           GPIO_PIN_3
+../HAL/lcd.c:143:27: error: 'GPIO_PIN_5' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_5;
+                           ^~~~~~~~~~
+                           GPIO_PIN_4
+../HAL/lcd.c:147:27: error: 'GPIO_PIN_6' undeclared (first use in this function); did you mean 'GPIO_PIN_5'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_6;
+                           ^~~~~~~~~~
+                           GPIO_PIN_5
+../HAL/lcd.c:151:27: error: 'GPIO_PIN_7' undeclared (first use in this function); did you mean 'GPIO_PIN_6'?
+  PinCfg.GPIO_Pin_Number = GPIO_PIN_7;
+                           ^~~~~~~~~~
+                           GPIO_PIN_6
+make: *** [HAL/subdir.mk:23: HAL/lcd.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:17:14 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../HAL/lcd.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/lcd.d" -MT"HAL/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/lcd.o"
+../HAL/lcd.c: In function 'LCD_check_lcd_isbusy':
+../HAL/lcd.c:124:21: error: 'GPIO_Mode_INPUT_FLO' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_F'?
+  PinCfg.GPIO_Mode = GPIO_Mode_INPUT_FLO;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_F
+../HAL/lcd.c:124:21: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [HAL/subdir.mk:23: HAL/lcd.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:17:55 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../HAL/lcd.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/lcd.d" -MT"HAL/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/lcd.o"
+../HAL/lcd.c: In function 'LCD_check_lcd_isbusy':
+../HAL/lcd.c:132:21: error: 'GPIO_Mode_INPUT_FLO' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_F'?
+  PinCfg.GPIO_Mode = GPIO_Mode_INPUT_FLO;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_F
+../HAL/lcd.c:132:21: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [HAL/subdir.mk:23: HAL/lcd.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:18:04 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../HAL/lcd.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/lcd.d" -MT"HAL/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/lcd.o"
+../HAL/lcd.c: In function 'LCD_check_lcd_isbusy':
+../HAL/lcd.c:136:21: error: 'GPIO_Mode_INPUT_FLO' undeclared (first use in this function); did you mean 'GPIO_MODE_INPUT_F'?
+  PinCfg.GPIO_Mode = GPIO_Mode_INPUT_FLO;
+                     ^~~~~~~~~~~~~~~~~~~
+                     GPIO_MODE_INPUT_F
+../HAL/lcd.c:136:21: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [HAL/subdir.mk:23: HAL/lcd.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:18:29 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../HAL/lcd.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/lcd.d" -MT"HAL/lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/lcd.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit7\Lesson3\Drivers\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Drivers.elf
+ 
+arm-none-eabi-size   Drivers.elf 
+arm-none-eabi-objdump -h -S  Drivers.elf  > "Drivers.list"
+arm-none-eabi-objcopy  -O binary  Drivers.elf  "Drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   1012	     24	   1568	   2604	    a2c	Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Drivers.list
+ 
+Finished building: Drivers.bin
+ 
+02:24:42 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c:12:9: fatal error: keybad.h: No such file or directory
+ #include"keybad.h"
+         ^~~~~~~~~~
+compilation terminated.
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:24:59 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c:21:2: error: expected identifier or '(' before 'return'
+  return 0;
+  ^~~~~~
+../Src/main.c:22:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:25:11 **** Incremental Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit7\Lesson3\Drivers\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  Drivers.elf  > "Drivers.list"
+arm-none-eabi-objcopy  -O binary  Drivers.elf  "Drivers.bin"
+arm-none-eabi-size   Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+    556	      8	   1568	   2132	    854	Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Drivers.list
+Finished building: Drivers.bin
+ 
+ 
+05:30:29 **** Build of configuration Debug for project Drivers ****
+make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit7\Lesson3\Drivers\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  Drivers.elf  > "Drivers.list"
+arm-none-eabi-objcopy  -O binary  Drivers.elf  "Drivers.bin"
+arm-none-eabi-size   Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1012	     24	   1568	   2604	    a2c	Drivers.elf
+Finished building: default.size.stdout
+Finished building: Drivers.list
+ 
+ 
+Finished building: Drivers.bin
+ 

@@ -1,10 +1,20 @@
-23:21:58 **** Build of configuration Debug for project Drivers ****
+05:30:29 **** Build of configuration Debug for project Drivers ****
 make -j4 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit7/Lesson3/Drivers/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Drivers.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit7\Lesson3\Drivers\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  Drivers.elf  > "Drivers.list"
+arm-none-eabi-objcopy  -O binary  Drivers.elf  "Drivers.bin"
 arm-none-eabi-size   Drivers.elf 
    text	   data	    bss	    dec	    hex	filename
    1012	     24	   1568	   2604	    a2c	Drivers.elf
 Finished building: default.size.stdout
+Finished building: Drivers.list
+ 
+ 
+Finished building: Drivers.bin
  
 
-23:21:59 Build Finished. 0 errors, 0 warnings. (took 1s.93ms)
+05:30:36 Build Finished. 0 errors, 0 warnings. (took 6s.496ms)
 
