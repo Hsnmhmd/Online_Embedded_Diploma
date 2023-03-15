@@ -1,0 +1,30 @@
+12:21:00 **** Incremental Build of configuration Debug for project Drivers_I2C ****
+make -j16 all 
+arm-none-eabi-gcc -gdwarf-2 "../Stm32f103c6_Drivers/Stm32_F103C6_I2C_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit8/Lesson7_I2C_Controller/Drivers_I2C/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit8/Lesson7_I2C_Controller/Drivers_I2C/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Stm32f103c6_Drivers/Stm32_F103C6_I2C_driver.d" -MT"Stm32f103c6_Drivers/Stm32_F103C6_I2C_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Stm32f103c6_Drivers/Stm32_F103C6_I2C_driver.o"
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit8/Lesson7_I2C_Controller/Drivers_I2C/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit8/Lesson7_I2C_Controller/Drivers_I2C/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 "../HAL/I2C_Slave_eeprom.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit8/Lesson7_I2C_Controller/Drivers_I2C/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit8/Lesson7_I2C_Controller/Drivers_I2C/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"HAL/I2C_Slave_eeprom.d" -MT"HAL/I2C_Slave_eeprom.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "HAL/I2C_Slave_eeprom.o"
+../Stm32f103c6_Drivers/Stm32_F103C6_I2C_driver.c: In function 'MCAL_I2C_Master_TX':
+../Stm32f103c6_Drivers/Stm32_F103C6_I2C_driver.c:235:22: warning: variable 'dummyread' set but not used [-Wunused-but-set-variable]
+  int i = 0; uint32_t dummyread;
+                      ^~~~~~~~~
+../Stm32f103c6_Drivers/Stm32_F103C6_I2C_driver.c: In function 'MCAL_I2C_Master_RX':
+../Stm32f103c6_Drivers/Stm32_F103C6_I2C_driver.c:296:22: warning: variable 'dummyread' set but not used [-Wunused-but-set-variable]
+  int i = 0; uint32_t dummyread;
+                      ^~~~~~~~~
+arm-none-eabi-gcc -gdwarf-2 -o "Drivers_I2C.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit8\Lesson7_I2C_Controller\Drivers_I2C\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Drivers_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Drivers_I2C.elf
+ 
+arm-none-eabi-objdump -h -S  Drivers_I2C.elf  > "Drivers_I2C.list"
+arm-none-eabi-objcopy  -O binary  Drivers_I2C.elf  "Drivers_I2C.bin"
+arm-none-eabi-size   Drivers_I2C.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3760	      8	   1776	   5544	   15a8	Drivers_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: Drivers_I2C.bin
+Finished building: Drivers_I2C.list
+ 
+ 
+
+12:21:00 Build Finished. 0 errors, 2 warnings. (took 784ms)
+

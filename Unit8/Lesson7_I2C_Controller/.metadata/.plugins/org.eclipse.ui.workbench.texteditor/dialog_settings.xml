@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="pclk1"/>
+		<item key="selection" value="I2C_t"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="I2C_TypeDef"/>
 			<item value="PClk1"/>
 			<item value="I2C_InitTyeDef"/>
-			<item value="I2C_TypeDef"/>
 		</list>
 		<list key="replacehistory">
+			<item value="I2C_t"/>
 			<item value="pclk1"/>
 			<item value="I2C_Config_t"/>
-			<item value="I2C_t"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
