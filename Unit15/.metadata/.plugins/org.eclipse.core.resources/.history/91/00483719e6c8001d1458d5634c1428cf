@@ -1,0 +1,27 @@
+/**
+ ******************************************************************************
+ * @file           : main.c
+ * @author         : Hassan Abd Eltawab
+ * @brief          : Blinking Led Using Free RTOS
+ ******************************************************************************
+
+ ******************************************************************************
+ */
+
+#if !defined(__SOFT_FP__) && defined(__ARM_FP)
+  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+#endif
+#include"Stm32_F103C6_gpio_driver.h"
+void GpioPin_Init(){
+	GPIO_PinConfig_t pinconfig;
+	pinconfig.GPIO_Mode=GPIO_MODE_OUTPUT_OD_10M;
+	pinconfig.GPIO_Pin_Number=GPIO_Pin_13;
+	MCAL_GPIO_Init(GPIOC, &pinconfig);
+}
+int main(void)
+{
+	RCC_GPIOC_CLK_EN();
+	GpioPin_Init();
+    /* Loop forever */
+	for(;;);
+}

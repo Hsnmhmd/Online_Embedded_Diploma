@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;FreeRtos_BlinkingLed/Debug/FreeRtos_BlinkingLed.elf&apos; to &apos;FreeRtos_BlinkingLed.axf&apos;" description="Rename resource &apos;FreeRtos_BlinkingLed.elf&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Debug/FreeRtos_BlinkingLed.elf" name="FreeRtos_BlinkingLed.axf" stamp="1679516511355" updateReferences="true"/>
+</session>

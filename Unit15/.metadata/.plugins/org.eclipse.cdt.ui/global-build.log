@@ -1,0 +1,17 @@
+22:21:22 **** Incremental Build of configuration Debug for project FreeRtos_BlinkingLed ****
+make -j16 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit15/FreeRtos_BlinkingLed/Free_RTOS/include" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit15/FreeRtos_BlinkingLed/Stm32f103c6_Drivers/inc" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit15/FreeRtos_BlinkingLed/Free_RTOS/portable/GCC/ARM_CM3" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "FreeRtos_BlinkingLed.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit15\FreeRtos_BlinkingLed\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRtos_BlinkingLed.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRtos_BlinkingLed.elf
+ 
+arm-none-eabi-objdump -h -S  FreeRtos_BlinkingLed.elf  > "FreeRtos_BlinkingLed.list"
+arm-none-eabi-objcopy  -O binary  FreeRtos_BlinkingLed.elf  "FreeRtos_BlinkingLed.bin"
+arm-none-eabi-size   FreeRtos_BlinkingLed.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6020	     16	  10192	  16228	   3f64	FreeRtos_BlinkingLed.elf
+Finished building: default.size.stdout
+ 
+Finished building: FreeRtos_BlinkingLed.bin
+Finished building: FreeRtos_BlinkingLed.list
+ 
+ 
