@@ -1,0 +1,96 @@
+#if !defined(__SOFT_FP__) && defined(__ARM_FP)
+#warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+#endif
+
+
+/*===============Learn in depth================*/
+/*===Second term project Smart Car Barking=====*/
+/*Eng : */
+
+#include "LCD_Controller.h"
+#include "LED_Controller.h"
+#include "Gate_Controller.h"
+#include "Park_Controller.h"
+
+#include "Stm32_F103C6_UART_driver.h"
+#include "Stm32_F103C6_gpio_driver.h"
+#include "stm32f103x6.h"
+#include "Servo_Motor.h"
+#include "keypad.h"
+
+
+/*
+=================================================================
+
+		Add Your Drivers
+
+=================================================================
+ */
+#define LCD0_INDEX 0
+#define LCD1_INDEX 1
+/*=================Global Variables===============*/
+uint16_t RFID_CARD_Enter;
+uint16_t RFID_CARD_EXIT;
+
+uint8_t pass[3] ={0};
+uint8_t Available_Slots=3;
+uint8_t Search_Done = 0;
+
+LCD_Config_t LCD0;
+LCD_Config_t LCD1;
+
+void (* Park_Status)()=Park_Idle;
+void (* LCD1_Status)()=LCD_Idle;
+void (* LED_Status)()=LED_Idle;
+void (* Gate_Status)()=Gates_Idle;
+int main(void)
+{
+
+	RCC_GPIOA_CLK_EN();
+	RCC_GPIOB_CLK_EN();
+	RCC_AFIO_CLK_EN();
+	Keypad_init();
+
+
+	LCDS_init();
+
+	Timer2_init();
+	Servo1_Entry_Gate_Init();
+	Servo2_Exit_Gate_Init();
+	RFIDs_Init();
+
+	/* PA2  ->TX
+	 * PA3 ->RX
+	 * PA0 ->CTS
+	 * PA1 ->RTS
+	 */
+	LCD_INIT(0, &LCD0);
+	LCD_INIT(1, &LCD1);
+	LEDs_Init();
+	PIRs_Iint();
+
+	/*==========Enter IDs To Store In Array Pass==========*/
+	Store_IDs_From_Admin();
+	/*Dash Bord LCD*/
+	LCD_Welcome();
+	LCD_Display_Empty_Slots();
+
+	while(1)
+	{
+		/*=====================Enter gate=====================*/
+		Park_Status();
+		LED_Status();
+		LCD1_Status();
+		LED_Status();
+		Gate_Status();
+		LED_Status();
+		LCD1_Status();
+
+		/*==================Wrong Id====================*/
+	}
+
+	return 0;
+}
+
+
+

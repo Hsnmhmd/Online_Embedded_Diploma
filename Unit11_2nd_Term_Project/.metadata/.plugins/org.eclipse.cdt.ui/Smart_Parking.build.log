@@ -1,0 +1,21 @@
+13:12:23 **** Incremental Build of configuration Debug for project Smart_Parking ****
+make -j16 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/Park_Controller.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit11_2nd_Term_Project/Smart_Parking/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit11_2nd_Term_Project/Smart_Parking/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/Park_Controller.d" -MT"Src/Park_Controller.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/Park_Controller.o"
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit11_2nd_Term_Project/Smart_Parking/HAL/INC" -I"D:/Online_Emb_Diploma/GitHub/Online_Embedded_Diploma/Unit11_2nd_Term_Project/Smart_Parking/Stm32f103c6_Drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Smart_Parking.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Online_Emb_Diploma\GitHub\Online_Embedded_Diploma\Unit11_2nd_Term_Project\Smart_Parking\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Smart_Parking.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Smart_Parking.elf
+ 
+arm-none-eabi-objdump -h -S  Smart_Parking.elf  > "Smart_Parking.list"
+arm-none-eabi-objcopy  -O binary  Smart_Parking.elf  "Smart_Parking.bin"
+arm-none-eabi-size   Smart_Parking.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8556	     12	   2388	  10956	   2acc	Smart_Parking.elf
+Finished building: default.size.stdout
+ 
+Finished building: Smart_Parking.bin
+Finished building: Smart_Parking.list
+ 
+ 
+
+13:12:23 Build Finished. 0 errors, 0 warnings. (took 544ms)
+

@@ -1,0 +1,470 @@
+#if !defined(__SOFT_FP__) && defined(__ARM_FP)
+#warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+#endif
+
+
+/*===============Learn in depth================*/
+/*===Second term project Smart Car Barking=====*/
+/*Eng : */
+
+void LED_Red_On();
+void LED_Green_On();
+void LED_Green_Off();
+void LED_Red_Off();
+void LED_Idle();
+void LCD_Farewell();
+void LCD_Idle();
+void LCD_Rejected();
+void LCD_Full_Parking();
+void LCD_Full_Parking();
+void Gates_Idle();
+void Gate1_Letting();
+void Gate2_Letting();
+/*
+=================================================================
+
+		Add Your Drivers
+
+=================================================================
+ */
+#include "lcd.h"
+#include "Stm32_F103C6_UART_driver.h"
+#include "Stm32_F103C6_gpio_driver.h"
+#include "stm32f103x6.h"
+#include "Servo_Motor.h"
+#include "keypad.h"
+
+#define LCD0_INDEX 0
+#define LCD1_INDEX 1
+/*=================Global Variables===============*/
+uint16_t RFID_CARD_Enter;
+uint16_t RFID_CARD_EXIT;
+uint16_t RFID_CARD_Enter_Old;
+uint16_t RFID_CARD_EXIT_Old;
+uint8_t pass[3] ={0};
+
+unsigned char Available_Slots=3;
+uint8_t Search_Done = 0;
+
+void volatile(* Park_Status)();
+void volatile(* LCD1_Status)();
+void volatile(* LED_Status)();
+void volatile(* Gate_Status)();
+//void (*Gate2_Status)();
+
+
+void RFID_CARD_Enter_CallBack(void);
+void RFID_CARD_EXIT_CallBack(void);
+
+void LCD_Welcome(void);
+void LCD_Display_Empty_Slots(void);
+void LEDs_Init(void);
+void PIRs_Iint(void);
+void Store_IDs_From_Admin(void);
+void Search_ID(uint8_t v, char * found_message);
+void LCDS_init();
+void LCD_Rejected();
+
+LCD_Config_t LCD0;
+
+LCD_Config_t LCD1;
+
+int main(void)
+{
+
+	RCC_GPIOA_CLK_EN();
+	RCC_GPIOB_CLK_EN();
+	RCC_AFIO_CLK_EN();
+	Keypad_init();
+
+
+	LCDS_init();
+	Timer2_init();
+	Servo1_Entry_Gate_Init();
+	Servo2_Exit_Gate_Init();
+	//==========================UART1 INIT=============================
+	UART_Config_t UART1_C;
+	UART1_C.BaudRate=USART_BaudRate_115200;
+	UART1_C.HWFlowCtl=USART_HwFlowCtl_NONE;
+	UART1_C.Parity=USART_Parity_None;
+	UART1_C.StopBits=USART_StopBits_1;
+	UART1_C.Payload_Length=USART_Payload_Length8;
+	UART1_C.USART_Mode=USART_MODE_TX_RX;
+	UART1_C.P_IRQ_CallBack=RFID_CARD_Enter_CallBack;
+	UART1_C.IRQ_Enable=USART_IRQ_Enable_RXIEN;
+
+	MCAL_USART_Init(&UART1_C, USART1);
+	MCAL_USART_SetPins(USART1);
+	/* PA9  TX
+	 * PA10 RX
+	 * PA11 CTC
+	 * PA12 RTS
+	 */
+	/*
+write your Code
+	 */
+
+
+	//==========================UART2 INIT=============================
+	UART_Config_t UART2_C;
+	UART2_C.BaudRate=USART_BaudRate_115200;
+	UART2_C.HWFlowCtl=USART_HwFlowCtl_NONE;
+	UART2_C.Parity=USART_Parity_None;
+	UART2_C.StopBits=USART_StopBits_1;
+	UART2_C.Payload_Length=USART_Payload_Length8;
+	UART2_C.USART_Mode=USART_MODE_TX_RX;
+	UART2_C.P_IRQ_CallBack=RFID_CARD_EXIT_CallBack;
+	UART2_C.IRQ_Enable=USART_IRQ_Enable_RXIEN;
+	MCAL_USART_Init(&UART2_C, USART2);
+	MCAL_USART_SetPins(USART2);
+	/* PA2  ->TX
+	 * PA3 ->RX
+	 * PA0 ->CTS
+	 * PA1 ->RTS
+	 */
+
+	/*
+		write your Code
+	 */
+
+	LCD_INIT(0, &LCD0);
+	LCD_INIT(1, &LCD1);
+	LEDs_Init();
+	PIRs_Iint();
+
+	/*==========Enter IDs To Store In Array Pass==========*/
+	Store_IDs_From_Admin();
+
+	/*Dash Bord LCD*/
+	LCD_Welcome();
+	LCD_Display_Empty_Slots();
+    unsigned char l=0;
+// for (;l<10;l++);
+
+
+	while(1)
+	{
+
+		/*=====================Enter gate=====================*/
+		Park_Status();
+		LED_Status();
+		LCD1_Status();
+		LED_Status();
+		Gate_Status();
+		LED_Status();
+		LCD1_Status();
+//		Gate2_Status();
+		l^=1;
+		delay_mss(50);
+
+		/*==================Wrong Id====================*/
+
+
+	}
+
+	return 0;
+}
+void Park_Idle(){
+
+}
+void Park_Process_ID(){
+	int i=0;
+	if( RFID_CARD_Enter != RFID_CARD_Enter_Old ){
+		RFID_CARD_Enter_Old=RFID_CARD_Enter;
+		if(Available_Slots>0)
+		{
+			Search_Done=0;
+			uint8_t i;
+			for(i=0;i<3;i++){
+				if(RFID_CARD_Enter_Old==pass[i]){
+					LCD1_Status=LCD_Welcome;
+					LED_Status=LED_Green_On;
+					Gate_Status=Gate1_Letting;
+					Available_Slots--;
+					break;
+				}else
+					Search_Done++;
+			}if(Search_Done==3){
+				LCD1_Status=LCD_Rejected;
+				LED_Status=LED_Red_On;
+				Search_Done=0;
+			}
+		}
+		/*======Parking is full so not allow enetr cars=======*/
+		else
+		{
+			LCD1_Status=LCD_Full_Parking;
+		}
+	}
+	//Search about ID in array of Pass
+
+
+	/*===================Exit gate====================*/
+	if( RFID_CARD_EXIT != RFID_CARD_EXIT_Old ){
+		RFID_CARD_EXIT_Old=RFID_CARD_EXIT;
+
+		Search_Done=0;
+		for(i=0;i<3;i++){
+			if(RFID_CARD_EXIT==pass[i]){
+				LCD1_Status=LCD_Farewell;
+				Gate_Status=Gate2_Letting;
+				break;
+			}else
+				Search_Done++;
+		}if(Search_Done==3){
+			LCD1_Status=LCD_Rejected;
+			LED_Status=LED_Red_On;
+			Search_Done=0;
+		}
+
+	}
+	Park_Status=Park_Idle;
+
+}
+void Gates_Idle(){
+
+}
+void Gate1_Letting(){
+	Servo1_Entry_Gate(UP);
+	delay_mss(2000);
+	while(MCAL_GPIO_ReadPIN(GPIOA, GPIO_Pin_7));
+	Servo1_Entry_Gate(Down);
+	LED_Status=LED_Green_Off;
+	LCD1_Status=LCD_Display_Empty_Slots;
+	Gate_Status=Gates_Idle;
+}
+void Gate2_Letting(){
+	Servo2_Exit_Gate(UP);
+	delay_mss(2000);
+	while(MCAL_GPIO_ReadPIN(GPIOA, GPIO_Pin_1));
+	Servo2_Exit_Gate(Down);
+	LED_Status=LED_Green_Off;
+	LCD1_Status=LCD_Display_Empty_Slots;
+	Gate_Status=Gates_Idle;
+}
+
+void LED_Red_On(){
+	MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_0,GPIO_PIN_RESET);
+	delay_mss(1000);
+	LED_Red_Off();
+	LED_Status=LED_Idle;
+}
+void LED_Green_On(){
+	MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_11,GPIO_PIN_RESET);
+
+
+}
+void LED_Green_Off(){
+	MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_11,GPIO_PIN_SET);
+	LED_Status=LED_Idle;
+}
+void LED_Red_Off(){
+	MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_0,GPIO_PIN_SET);
+	LED_Status=LED_Idle;
+
+}
+void LED_Idle(){
+
+}
+void LCD_Farewell(){
+	LCD_WRITE_COMMAND(LCD1_INDEX, LCD_DISP_ON);
+	LCD_WRITE_COMMAND(LCD1_INDEX, LCD_CLEAR_SCREEN);
+	LCD_GOTO_XY(LCD1_INDEX, 0, 0);
+	LCD_WRITE_STRING(LCD1_INDEX,"See You");
+}
+void LCD_Idle(){
+	LCD1_Status=LCD_Idle;
+}
+void LCD_Rejected(){
+	LCD_WRITE_COMMAND(LCD1_INDEX, LCD_DISP_ON);
+	LCD_WRITE_COMMAND(LCD1_INDEX, LCD_CLEAR_SCREEN);
+	LCD_GOTO_XY(LCD1_INDEX, 0, 0);
+	LCD_WRITE_STRING(LCD1_INDEX,"Not Allowed ID");
+	LCD1_Status=LCD_Display_Empty_Slots;
+
+}
+void LCD_Full_Parking(){
+	LCD_WRITE_COMMAND(LCD1_INDEX, LCD_DISP_ON);
+	LCD_WRITE_COMMAND(LCD1_INDEX, LCD_CLEAR_SCREEN);
+	LCD_GOTO_XY(LCD1_INDEX, 0, 0);
+	LCD_WRITE_STRING(LCD1_INDEX,"Parking is Full");
+}
+/*Call Back For UART*/
+void RFID_CARD_Enter_CallBack(void)
+{
+	MCAL_USART_Recieve(USART1, &RFID_CARD_Enter, Enable);
+	MCAL_USART_Send(USART1, &RFID_CARD_Enter, Enable);
+	Park_Status=Park_Process_ID;
+}
+
+void RFID_CARD_EXIT_CallBack(void)
+{
+	MCAL_USART_Recieve(USART2, &RFID_CARD_EXIT, Enable);
+	MCAL_USART_Send(USART2, &RFID_CARD_EXIT, Enable);
+	Park_Status=Park_Process_ID;
+}
+
+
+
+void LCD_Welcome(void)
+{
+	/*Dash Bord LCD*/
+
+	LCD_WRITE_COMMAND(LCD1_INDEX, LCD_DISP_ON);
+	LCD_WRITE_COMMAND(LCD1_INDEX, LCD_CLEAR_SCREEN);
+	LCD_GOTO_XY(LCD1_INDEX, 0, 0);
+	LCD_WRITE_STRING(LCD1_INDEX,"Welcome in Smart Parking");
+	LCD1_Status=LCD_Idle;
+}
+
+void LCD_Display_Empty_Slots(void)
+{
+	LCD_WRITE_COMMAND(LCD1_INDEX, LCD_DISP_ON);
+	LCD_WRITE_COMMAND(LCD1_INDEX, LCD_CLEAR_SCREEN);
+	LCD_GOTO_XY(LCD1_INDEX, 0, 0);
+	LCD_WRITE_STRING(LCD1_INDEX,"Empty Slots=");
+	LCD_GOTO_XY(LCD1_INDEX, 13, 0);
+	LCD_WRITE_CHAR(LCD1_INDEX,Available_Slots+48);
+	LCD1_Status=LCD_Idle;
+}
+
+void LEDs_Init(void)
+{
+	//RED LED A0
+	/*
+write your Code
+	 */
+	GPIO_PinConfig_t PinCinfg;
+	PinCinfg.GPIO_Pin_Number=GPIO_Pin_0;
+	PinCinfg.GPIO_Mode = GPIO_MODE_OUTPUT_PP_10M;
+	MCAL_GPIO_Init(GPIOA, &PinCinfg);
+
+	//GREEN LED A11
+	PinCinfg.GPIO_Pin_Number=GPIO_Pin_11;
+	PinCinfg.GPIO_Mode = GPIO_MODE_OUTPUT_PP_10M;
+	MCAL_GPIO_Init(GPIOA, &PinCinfg);
+	/*
+	 *
+write your Code
+	 */
+}
+
+void PIRs_Iint(void)
+{
+	//PIR1 A7
+	GPIO_PinConfig_t PinCinfg;
+	PinCinfg.GPIO_Pin_Number=GPIO_Pin_7;
+	PinCinfg.GPIO_Mode = GPIO_MODE_INPUT_PU;
+	MCAL_GPIO_Init(GPIOA, &PinCinfg);
+
+	//PIR2 A1
+	PinCinfg.GPIO_Pin_Number=GPIO_Pin_1;
+	PinCinfg.GPIO_Mode = GPIO_MODE_INPUT_PU;
+	MCAL_GPIO_Init(GPIOA, &PinCinfg);
+
+	MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_0, 1); //make A0 ground
+	MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_11, 1); //make A11 ground
+
+}
+
+void Store_IDs_From_Admin(void)
+{
+	LCD_WRITE_COMMAND(LCD0_INDEX, LCD_DISP_ON);
+	LCD_WRITE_COMMAND(LCD0_INDEX, LCD_CLEAR_SCREEN);
+	LCD_GOTO_XY(LCD0_INDEX, 0, 0);
+	LCD_WRITE_STRING(LCD0_INDEX,"Enter Car IDS");
+	static uint8_t i=0;
+	for(i=0;i<3;i++){
+		do{
+			pass[i]=Keypad_getkey();
+		}
+		while(pass[i]=='N');
+		LCD_WRITE_COMMAND(LCD0_INDEX, LCD_DISP_ON);
+		LCD_WRITE_COMMAND(LCD0_INDEX, LCD_CLEAR_SCREEN);
+		LCD_GOTO_XY(LCD0_INDEX, 0, 0);
+		LCD_WRITE_STRING(LCD0_INDEX,"ID ");
+		LCD_GOTO_XY(LCD0_INDEX, 4, 0);
+		LCD_WRITE_CHAR(LCD0_INDEX,i+48);
+		LCD_GOTO_XY(LCD0_INDEX, 5, 0);
+		LCD_WRITE_CHAR(LCD0_INDEX,'=');
+		LCD_GOTO_XY(LCD0_INDEX, 6, 0);
+		LCD_WRITE_CHAR(LCD0_INDEX,pass[i]);
+		//		pass[i]=Keypad_getkey();
+	}
+	LCD_WRITE_COMMAND(LCD0_INDEX, LCD_DISP_ON);
+	LCD_WRITE_COMMAND(LCD0_INDEX, LCD_CLEAR_SCREEN);
+	LCD_GOTO_XY(LCD0_INDEX, 0, 0);
+	LCD_WRITE_STRING(LCD0_INDEX,"Allowed IDS=");
+	for(i=0;i<3;i++){
+		LCD_GOTO_XY(LCD0_INDEX, i+12, 0);
+		LCD_WRITE_CHAR(LCD0_INDEX,pass[i]);
+	}
+	/*
+write your Code
+	 */
+}
+void LCDS_init(){
+	LCD1.LCD_MODE=LCD_MODE_4BIT_2LINES;
+	LCD1.EN_LCD_PIN.GPIO_Port = GPIOA;
+	LCD1.EN_LCD_PIN.GPIO_PIN = GPIO_Pin_6;
+	LCD1.RS_LCD_PIN.GPIO_Port = GPIOA;
+	LCD1.RS_LCD_PIN.GPIO_PIN = GPIO_Pin_5;
+	LCD1.RW_LCD_PIN.GPIO_Port = GPIOA;
+	LCD1.RW_LCD_PIN.GPIO_PIN = GPIO_Pin_4;
+	LCD1.D_LCD_PIN[0].GPIO_Port = GPIOA;
+	LCD1.D_LCD_PIN[0].GPIO_PIN = GPIO_Pin_12;
+	LCD1.D_LCD_PIN[1].GPIO_Port = GPIOA;
+	LCD1.D_LCD_PIN[1].GPIO_PIN = GPIO_Pin_13;
+	LCD1.D_LCD_PIN[2].GPIO_Port = GPIOA;
+	LCD1.D_LCD_PIN[2].GPIO_PIN = GPIO_Pin_14;
+	LCD1.D_LCD_PIN[3].GPIO_Port = GPIOA;
+	LCD1.D_LCD_PIN[3].GPIO_PIN = GPIO_Pin_15;
+
+
+	LCD0.LCD_MODE=LCD_MODE_4BIT_2LINES;
+	LCD0.EN_LCD_PIN.GPIO_Port = GPIOB;
+	LCD0.EN_LCD_PIN.GPIO_PIN = GPIO_Pin_10;
+	LCD0.RS_LCD_PIN.GPIO_Port = GPIOB;
+	LCD0.RS_LCD_PIN.GPIO_PIN = GPIO_Pin_11;
+	LCD0.RW_LCD_PIN.GPIO_Port = GPIOA;
+	LCD0.RW_LCD_PIN.GPIO_PIN = GPIO_Pin_4;
+	LCD0.D_LCD_PIN[0].GPIO_Port = GPIOB;
+	LCD0.D_LCD_PIN[0].GPIO_PIN = GPIO_Pin_12;
+	LCD0.D_LCD_PIN[1].GPIO_Port = GPIOB;
+	LCD0.D_LCD_PIN[1].GPIO_PIN = GPIO_Pin_13;
+	LCD0.D_LCD_PIN[2].GPIO_Port = GPIOB;
+	LCD0.D_LCD_PIN[2].GPIO_PIN = GPIO_Pin_14;
+	LCD0.D_LCD_PIN[3].GPIO_Port = GPIOB;
+	LCD0.D_LCD_PIN[3].GPIO_PIN = GPIO_Pin_15;
+}
+
+void Search_ID(uint8_t v, char * found_message){
+	Search_Done=0;
+	uint8_t i;
+	for(i=0;i<3;i++){
+
+		if(v==pass[i]){
+			LCD_WRITE_COMMAND(LCD1_INDEX, LCD_DISP_ON);
+			LCD_WRITE_COMMAND(LCD1_INDEX, LCD_CLEAR_SCREEN);
+			LCD_GOTO_XY(LCD1_INDEX, 0, 0);
+			LCD_WRITE_STRING(LCD1_INDEX,found_message);
+			MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_11,GPIO_PIN_RESET);
+			Servo1_Entry_Gate(UP);
+			delay_mss(2000);
+			while(MCAL_GPIO_ReadPIN(GPIOA, GPIO_Pin_7));
+			Servo1_Entry_Gate(Down);
+			MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_11,GPIO_PIN_SET);
+			Available_Slots--;
+			LCD_Display_Empty_Slots();
+			break;
+		}else
+		Search_Done++;
+	}if(Search_Done==3){
+		MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_0,GPIO_PIN_RESET);
+		delay_mss(1000);
+		LCD_Rejected();
+		MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_0,GPIO_PIN_SET);
+		Search_Done=0;
+		LCD_Display_Empty_Slots();
+	}
+}

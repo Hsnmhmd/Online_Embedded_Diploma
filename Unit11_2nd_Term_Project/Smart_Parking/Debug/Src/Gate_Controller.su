@@ -1,0 +1,7 @@
+Gate_Controller.c:15:6:Gates_Idle	4	static
+Gate_Controller.c:18:6:Gate1_Letting	8	static
+Gate_Controller.c:27:6:Gate2_Letting	8	static
+Gate_Controller.c:36:6:RFIDs_Init	48	static
+Gate_Controller.c:70:6:RFID_CARD_Enter_CallBack	8	static
+Gate_Controller.c:77:6:RFID_CARD_EXIT_CallBack	8	static
+Gate_Controller.c:86:6:PIRs_Iint	16	static

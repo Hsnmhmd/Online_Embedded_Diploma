@@ -1,0 +1,97 @@
+/*
+ * Gate_Controller.c
+ *
+ *  Created on: 1 Apr 2023
+ *      Author: Hassan
+ */
+
+#include "Gate_Controller.h"
+
+void Gates_Idle(){
+	Gate_Status=Gates_Idle;
+}
+void Gate1_Letting(){
+	Servo1_Entry_Gate(UP);
+	delay_mss(2000);
+	while(MCAL_GPIO_ReadPIN(GPIOA, GPIO_Pin_7));
+	Servo1_Entry_Gate(Down);
+	LED_Status=LED_Green_Off;
+	LCD1_Status=LCD_Display_Empty_Slots;
+	Gate_Status=Gates_Idle;
+}
+void Gate2_Letting(){
+	Servo2_Exit_Gate(UP);
+	delay_mss(2000);
+	while(MCAL_GPIO_ReadPIN(GPIOA, GPIO_Pin_1));
+	Servo2_Exit_Gate(Down);
+	LED_Status=LED_Green_Off;
+	LCD1_Status=LCD_Display_Empty_Slots;
+	Gate_Status=Gates_Idle;
+}
+void RFIDs_Init(void){
+	//==========================UART1 INIT=============================
+		UART_Config_t UART1_C;
+		UART1_C.BaudRate=USART_BaudRate_115200;
+		UART1_C.HWFlowCtl=USART_HwFlowCtl_NONE;
+		UART1_C.Parity=USART_Parity_None;
+		UART1_C.StopBits=USART_StopBits_1;
+		UART1_C.Payload_Length=USART_Payload_Length8;
+		UART1_C.USART_Mode=USART_MODE_TX_RX;
+		UART1_C.P_IRQ_CallBack=RFID_CARD_Enter_CallBack;
+		UART1_C.IRQ_Enable=USART_IRQ_Enable_RXIEN;
+
+		MCAL_USART_Init(&UART1_C, USART1);
+		MCAL_USART_SetPins(USART1);
+		/* PA9  TX
+		 * PA10 RX
+		 * PA11 CTC
+		 * PA12 RTS
+		 */
+		//==========================UART2 INIT=============================
+		UART_Config_t UART2_C;
+		UART2_C.BaudRate=USART_BaudRate_115200;
+		UART2_C.HWFlowCtl=USART_HwFlowCtl_NONE;
+		UART2_C.Parity=USART_Parity_None;
+		UART2_C.StopBits=USART_StopBits_1;
+		UART2_C.Payload_Length=USART_Payload_Length8;
+		UART2_C.USART_Mode=USART_MODE_TX_RX;
+		UART2_C.P_IRQ_CallBack=RFID_CARD_EXIT_CallBack;
+		UART2_C.IRQ_Enable=USART_IRQ_Enable_RXIEN;
+		MCAL_USART_Init(&UART2_C, USART2);
+		MCAL_USART_SetPins(USART2);
+}
+
+/*Call Back For UART*/
+void RFID_CARD_Enter_CallBack(void)
+{
+	MCAL_USART_Recieve(USART1, &RFID_CARD_Enter, Enable);
+	MCAL_USART_Send(USART1, &RFID_CARD_Enter, Enable);
+	Park_Status=Park_Process_EntryGate;
+}
+
+void RFID_CARD_EXIT_CallBack(void)
+{
+	MCAL_USART_Recieve(USART2, &RFID_CARD_EXIT, Enable);
+	MCAL_USART_Send(USART2, &RFID_CARD_EXIT, Enable);
+	Park_Status=Park_Process_ExitGate;
+}
+
+
+
+void PIRs_Iint(void)
+{
+	//PIR1 A7
+	GPIO_PinConfig_t PinCinfg;
+	PinCinfg.GPIO_Pin_Number=GPIO_Pin_7;
+	PinCinfg.GPIO_Mode = GPIO_MODE_INPUT_PU;
+	MCAL_GPIO_Init(GPIOA, &PinCinfg);
+
+	//PIR2 A1
+	PinCinfg.GPIO_Pin_Number=GPIO_Pin_1;
+	PinCinfg.GPIO_Mode = GPIO_MODE_INPUT_PU;
+	MCAL_GPIO_Init(GPIOA, &PinCinfg);
+
+	MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_0, 1); //make A0 ground
+	MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_11, 1); //make A11 ground
+
+

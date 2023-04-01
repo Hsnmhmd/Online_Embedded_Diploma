@@ -1,0 +1,27 @@
+/*
+ * Park_Controller.h
+ *
+ *  Created on: 1 Apr 2023
+ *      Author: admin
+ */
+
+#ifndef PARK_CONTROLLER_H_
+#define PARK_CONTROLLER_H_
+
+#include"lcd.h"
+#include "LCD_Controller.h"
+#include "LED_Controller.h"
+#include "Gate_Controller.h"
+
+
+extern void (* Park_Status)();
+extern uint8_t Available_Slots;
+#define LCD0_INDEX 0
+#define LCD1_INDEX 1
+
+void Park_Idle(void);
+void Park_Process_ExitGate(void);
+void Park_Process_EntryGate(void);
+void Store_IDs_From_Admin(void);
+
+#endif /* PARK_CONTROLLER_H_ */

@@ -1,0 +1,25 @@
+/*
+ * LCD_Controller.h
+ *
+ *  Created on: 1 Apr 2023
+ *      Author: admin
+ */
+
+#ifndef LCD_CONTROLLER_H_
+#define LCD_CONTROLLER_H_
+#include "lcd.h"
+#include "Stm32_F103C6_gpio_driver.h"
+#include "Park_Controller.h"
+
+extern void (* LCD1_Status)();
+#define LCD0_INDEX 0
+#define LCD1_INDEX 1
+void LCDS_init(void);
+void LCD_Rejected(void);
+void LCD_Welcome(void);
+void LCD_Display_Empty_Slots(void);
+void LCD_Farewell(void);
+void LCD_Idle(void);
+void LCD_Full_Parking(void);
+
+#endif /* LCD_CONTROLLER_H_ */

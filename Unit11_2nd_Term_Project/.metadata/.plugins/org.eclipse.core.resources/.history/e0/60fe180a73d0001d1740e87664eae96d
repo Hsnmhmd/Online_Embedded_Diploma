@@ -1,0 +1,18 @@
+/*
+ * Gate_Controller.h
+ *
+ *  Created on: 1 Apr 2023
+ *      Author: Hassan
+ */
+
+#ifndef GATE_CONTROLLER_H_
+#define GATE_CONTROLLER_H_
+void RFID_CARD_Enter_CallBack(void);
+void RFID_CARD_EXIT_CallBack(void);
+void PIRs_Iint(void);
+void Gates_Idle(void);
+void Gate1_Letting(void);
+void Gate2_Letting(void);
+
+
+#endif /* GATE_CONTROLLER_H_ */

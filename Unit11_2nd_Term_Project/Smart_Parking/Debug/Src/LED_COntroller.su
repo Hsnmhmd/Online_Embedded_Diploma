@@ -1,0 +1,6 @@
+LED_COntroller.c:11:6:LED_Red_On	8	static
+LED_COntroller.c:17:6:LED_Green_On	8	static
+LED_COntroller.c:22:6:LED_Green_Off	8	static
+LED_COntroller.c:26:6:LED_Red_Off	8	static
+LED_COntroller.c:31:6:LED_Idle	4	static
+LED_COntroller.c:34:6:LEDs_Init	16	static

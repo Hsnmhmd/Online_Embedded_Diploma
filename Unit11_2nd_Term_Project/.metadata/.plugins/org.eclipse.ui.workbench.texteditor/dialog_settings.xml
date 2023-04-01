@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="1"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="1"/>
+			<item value="0"/>
+			<item value="Enter"/>
+			<item value="0x01"/>
+			<item value="0x0c"/>
+			<item value="PIRs_Iint"/>
+			<item value="UART1_C"/>
+			<item value="LCD1"/>
+			<item value="LCD0"/>
+			<item value="GPIOA"/>
+		</list>
+		<list key="replacehistory">
+			<item value="LCD1_INDEX"/>
+			<item value="LCD0_INDEX"/>
+			<item value="EXIT"/>
+			<item value="Exit"/>
+			<item value="LCD_CLEAR_SCREEN"/>
+			<item value="LCD_DISP_ON"/>
+			<item value="UART2_C"/>
+			<item value="LCD0"/>
+			<item value="LCD1"/>
+			<item value="GPIOB"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1193"/>
+		<item key="DIALOG_Y_ORIGIN" value="207"/>
+		<item key="DIALOG_WIDTH" value="284"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

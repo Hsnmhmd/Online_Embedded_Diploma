@@ -1,0 +1,294 @@
+/*
+ * Stm32_F103C6_gpio_driver.c
+ *
+ *  Created on: Sep 18, 2021
+ *      Author: hassan
+ */
+#include"Stm32_F103C6_UART_driver.h"
+#include"Stm32_F103C6_gpio_driver.h"
+#include"Stm32_F103C6_RCC_driver.h"
+//-----------------------------
+/*
+ * ===============================================
+ * Generic Variables by "MCAL USART DRIVER"
+ * ===============================================
+ */
+//Save the passed structures to global variables not global pointers
+//incase that the structure passed gets erased when the stack from which it was passed gets deconstructed
+UART_Config_t  Global_UART_Config[3];
+UART_Config_t * Global_UART1_Config;
+UART_Config_t * Global_UART2_Config;
+UART_Config_t * Global_UART3_Config;
+
+/*
+ * ===============================================
+ * APIs Supported by "MCAL USART DRIVER"
+ * ===============================================
+ */
+/**================================================================
+ * @Fn-				MCAL_EXTI_Init
+ * @brief -			Initialize Specific USART according the config struct
+ * @param [in] -	Cofiguration structure, usart instance
+ * @param [out] -	None
+ * @retval -			None
+ * Note-
+ */
+void MCAL_USART_Init(UART_Config_t *UART_Config , USART_t* USARTx){
+	uint32_t pclk,BRR;
+
+	/*            Enable USART clocks      */
+	if (USARTx == USART1) {
+		RCC_USART1_CLK_EN();
+		Global_UART_Config[0]=*UART_Config;
+		Global_UART1_Config=&Global_UART_Config[0];
+		pclk=MCAL_RCC_GetPCLK2();
+	} else if (USARTx == USART2) {
+		RCC_USART2_CLK_EN();
+		Global_UART_Config[1]=*UART_Config;
+		Global_UART2_Config=&Global_UART_Config[1];
+		pclk=MCAL_RCC_GetPCLK1();
+	} else if (USARTx == USART3) {
+		RCC_USART3_CLK_EN();
+		Global_UART_Config[2]=*UART_Config;
+		Global_UART3_Config=&Global_UART_Config[2];
+		pclk=MCAL_RCC_GetPCLK1();
+	}
+
+	/*            Enable USART Module    	  */
+	//Bit 13 UE: USART enable
+	USARTx->CR1 |=(1<<13);
+	USARTx->CR1 |=UART_Config->USART_Mode;
+	USARTx->CR1 |=UART_Config->Payload_Length;
+	USARTx->CR1 |=UART_Config->Parity;
+
+	USARTx->CR2 |=UART_Config->StopBits;
+	USARTx->CR3 |=UART_Config->HWFlowCtl;
+
+	BRR = USART_BRR_Register(pclk,UART_Config->BaudRate);
+	USARTx->BRR = BRR ;
+
+	if (UART_Config->IRQ_Enable != USART_IRQ_Enable_NONE)
+	{
+		USARTx->CR1 |= UART_Config->IRQ_Enable ;
+		//enable NVIC for USART IRQ
+		if (USARTx == USART1)
+		{
+			NVIC_IRQ37_USART1_Enable ;
+		}
+		else if (USARTx == USART2)
+		{
+			NVIC_IRQ38_USART2_Enable ;
+		}
+		else if (USARTx == USART3)
+		{
+			NVIC_IRQ39_USART3_Enable ;
+		}
+	}
+
+}
+/*******************************************************************************************************************
+ * 		@Fn               -MCAL_USART_DeInit
+ * 		@brief            -DeInitialize UART (Asynchronous Only)
+ *		param[in]         -USARTx :where x can be 1,2,3 depending on device used
+ * 		@retval           -none
+ * 		Note              -Reset the model by RCC																													*
+ ********************************************************************************************************************/
+void MCAL_USART_DeInit(USART_t* USARTx )
+{
+	if (USARTx == USART1)
+	{
+		RCC_USART1_Reset();
+		NVIC_IRQ37_USART1_Disable ;
+	}
+	else if (USARTx == USART2)
+	{
+		RCC_USART2_Reset();
+		NVIC_IRQ38_USART2_Disable ;
+	}
+	else if (USARTx == USART3)
+	{
+		RCC_USART3_Reset();
+		NVIC_IRQ39_USART3_Disable ;
+	}
+
+}
+/*******************************************************************************************************************
+ * 		@Fn               -MCAL_USART_SetPins
+ * 		@brief            -set the Gpio pins to work with AFIO(UART)
+ *		param[in]         -USARTx :where x can be 1,2,3 depending on device used
+ * 		@retval           -none
+ * 		Note              -should enable the corresponding ALT &GPIO in RCC CLOCK AND called after MCAL_UART_INIT()																													*
+ ********************************************************************************************************************/
+
+void MCAL_USART_SetPins(USART_t *USARTx){
+	GPIO_PinConfig_t pincfg;
+	UART_Config_t * UARTx_Config;
+	GPIO_t * GPIOx;
+	uint8_t TX_PIN;
+	uint8_t RX_PIN;
+	uint8_t CTS_PIN;
+	uint8_t RTS_PIN;
+	if(USARTx == USART1)
+	{
+		TX_PIN=GPIO_Pin_9;
+		RX_PIN=GPIO_Pin_10;
+		CTS_PIN=GPIO_Pin_11;
+		RTS_PIN=GPIO_Pin_12;
+		GPIOx=GPIOA;
+		UARTx_Config=Global_UART1_Config;
+
+	}else if(USARTx == USART2){
+		TX_PIN=GPIO_Pin_2;
+		RX_PIN=GPIO_Pin_3;
+		CTS_PIN=GPIO_Pin_0;
+		RTS_PIN=GPIO_Pin_1;
+		GPIOx=GPIOA;
+		UARTx_Config=Global_UART2_Config;
+
+	}else if(USARTx == USART3){
+		TX_PIN=GPIO_Pin_10;
+		RX_PIN=GPIO_Pin_11;
+		CTS_PIN=GPIO_Pin_13;
+		RTS_PIN=GPIO_Pin_14;
+		GPIOx=GPIOB;
+		UARTx_Config=Global_UART3_Config;
+
+	}
+	//from alternative pin table for LQF and see recommended gpio pins configuration table
+
+	pincfg.GPIO_Pin_Number = TX_PIN ;
+	pincfg.GPIO_Mode = GPIO_MODE_AF_PP_10M;
+	MCAL_GPIO_Init(GPIOx, &pincfg) ;
+
+	pincfg.GPIO_Pin_Number = RX_PIN ;
+	pincfg.GPIO_Mode = GPIO_MODE_INPUT_F;
+	MCAL_GPIO_Init(GPIOx, &pincfg) ;
+
+	if(UARTx_Config->HWFlowCtl == USART_HwFlowCtl_CTS || UARTx_Config->HWFlowCtl == USART_HwFlowCtl_BOTH)
+	{
+		pincfg.GPIO_Pin_Number = CTS_PIN ;
+		pincfg.GPIO_Mode = GPIO_MODE_INPUT_F;
+		MCAL_GPIO_Init(GPIOx, &pincfg) ;
+	}
+
+	if(UARTx_Config->HWFlowCtl == USART_HwFlowCtl_RTS || UARTx_Config->HWFlowCtl == USART_HwFlowCtl_BOTH)
+	{
+		pincfg.GPIO_Pin_Number = RTS_PIN ;
+		pincfg.GPIO_Mode = GPIO_MODE_AF_PP_10M;
+		MCAL_GPIO_Init(GPIOx, &pincfg) ;
+	}
+
+
+}
+/*******************************************************************************************************************
+ * 		@Fn               - MCAL_UART_Send
+ * 		@brief            -send buffer on UART
+ *		param[in]         -USARTX :where x can be 1,2,3 depending on device used
+ *		param[in]         -PtxBuffer: the buffer that will be transmitted
+ *		param[in]          -PollingEn enable or disable the polling
+ * 		@retval           -none
+ * 		Note              -Should initialize UART First
+ *
+ ********************************************************************************************************************/
+void MCAL_USART_Send(USART_t *USARTx , uint16_t *pTxBuffer , enum Polling_Mechanism PollingEn ){
+
+	UART_Config_t * UARTx_Config;
+	if(USARTx == USART1)
+	{
+		UARTx_Config=Global_UART1_Config;
+
+	}else if(USARTx == USART2){
+		UARTx_Config=Global_UART2_Config;
+
+	}else if(USARTx == USART3){
+		UARTx_Config=Global_UART3_Config;
+	}
+	//wait until TXE is set Transmit data register empty
+	if(PollingEn==Enable)
+		while(!(USARTx->SR &(1<<7)));
+
+	if (UARTx_Config->Payload_Length == USART_Payload_Length9)
+
+	{
+		USARTx->DR = (*pTxBuffer&(uint16_t)0x01FF);
+	}
+	else
+	{
+		USARTx->DR = (*pTxBuffer&(uint8_t)0xFF);
+	}
+}
+/*******************************************************************************************************************
+ * 		@Fn               - MCAL_USART_Recieve
+ * 		@brief            -receive buffer from UART
+ *		param[in]         -USARTX :where x can be 1,2,3 depending on device used
+ *		param[in]         -PtxBuffer: the recieved buffer
+ *		param[in]          -PollingEn enable or disable the polling
+ * 		@retval           -none
+ * 		Note              -none																										*
+ ********************************************************************************************************************/
+void MCAL_USART_Recieve(USART_t *USARTx , uint16_t *pTxBuffer , enum Polling_Mechanism PollingEn ){
+	UART_Config_t * UARTx_Config;
+	if(USARTx == USART1)
+	{
+		UARTx_Config=Global_UART1_Config;
+
+	}else if(USARTx == USART2){
+		UARTx_Config=Global_UART2_Config;
+
+	}else if(USARTx == USART3){
+		UARTx_Config=Global_UART3_Config;
+	}
+	//wait until RXNE is set
+	if (PollingEn == Enable)
+	{
+		while(!(USARTx->SR&(1<<5)));
+	}
+	if(UARTx_Config->Payload_Length == USART_Payload_Length9)
+	{
+		if(UARTx_Config->Parity == USART_Parity_None)
+		{
+			//no parity so all 9bits are data
+			*((uint16_t*)pTxBuffer) = USARTx->DR ;
+		}
+		else
+		{
+			//if parity is used so 8bit is data and the last one is parity
+			*((uint16_t*)pTxBuffer) =( USARTx->DR & (uint8_t)0xFF);
+		}
+	}
+	else //8 bit data
+	{
+		if(UARTx_Config->Parity == USART_Parity_None)
+		{
+			//no parity so all 9bits are data
+			*((uint16_t*)pTxBuffer) = (USARTx->DR   & (uint8_t)0xFF);
+
+		}else{
+			//if parity is used so 8bit is data and the last one is parity
+			*((uint16_t*)pTxBuffer) =( USARTx->DR & (uint8_t)0x7F);
+		}
+	}
+}
+
+void MCAL_USART_Wait_TC(USART_t *USARTx)
+	{
+		while(!(USARTx->SR&1<<6));
+	}
+
+
+//ISR
+void USART1_IRQHandler()
+{
+	Global_UART1_Config->P_IRQ_CallBack();
+}
+
+void USART2_IRQHandler()
+{
+	Global_UART2_Config->P_IRQ_CallBack();
+}
+
+void USART3_IRQHandler()
+{
+	Global_UART3_Config->P_IRQ_CallBack();
+}
+

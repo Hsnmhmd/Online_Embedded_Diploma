@@ -1,0 +1,29 @@
+/*
+ * Gate_Controller.h
+ *
+ *  Created on: 1 Apr 2023
+ *      Author: Hassan
+ */
+
+#ifndef GATE_CONTROLLER_H_
+#define GATE_CONTROLLER_H_
+#include "LCD_Controller.h"
+#include "LED_Controller.h"
+#include "Stm32_F103C6_UART_driver.h"
+#include "Stm32_F103C6_gpio_driver.h"
+#include "stm32f103x6.h"
+#include "Servo_Motor.h"
+#include "keypad.h"
+
+extern void (* Gate_Status)();
+
+void RFIDs_Init(void)
+void RFID_CARD_Enter_CallBack(void);
+void RFID_CARD_EXIT_CallBack(void);
+void PIRs_Iint(void);
+void Gates_Idle(void);
+void Gate1_Letting(void);
+void Gate2_Letting(void);
+
+
+#endif /* GATE_CONTROLLER_H_ */

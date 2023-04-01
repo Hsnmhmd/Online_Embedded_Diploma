@@ -1,0 +1,7 @@
+LCD_Controller.c:12:6:LCD_Welcome	8	static
+LCD_Controller.c:22:6:LCD_Display_Empty_Slots	8	static
+LCD_Controller.c:32:6:LCD_Full_Parking	8	static
+LCD_Controller.c:38:6:LCD_Farewell	8	static
+LCD_Controller.c:44:6:LCD_Idle	4	static
+LCD_Controller.c:47:6:LCD_Rejected	8	static
+LCD_Controller.c:55:6:LCDS_init	8	static

@@ -1,0 +1,4 @@
+Park_Controller.c:16:6:Park_Idle	4	static
+Park_Controller.c:19:6:Park_Process_EntryGate	16	static
+Park_Controller.c:49:6:Park_Process_ExitGate	16	static
+Park_Controller.c:77:6:Store_IDs_From_Admin	16	static

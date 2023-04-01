@@ -1,0 +1,306 @@
+#if !defined(__SOFT_FP__) && defined(__ARM_FP)
+#warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+#endif
+
+
+/*===============Learn in depth================*/
+/*===Second term project Smart Car Barking=====*/
+/*Eng : */
+
+
+/*
+=================================================================
+
+		Add Your Drivers 
+
+=================================================================
+*/
+#include "lcd.h"
+#include "Stm32_F103C6_UART_driver.h"
+#include "Stm32_F103C6_gpio_driver.h"
+#include "stm32f103x6.h"
+#include "Servo_Motor.h"
+#include "keypad.h"
+
+/*=================Global Variables===============*/
+uint16_t RFID_CARD_Enter;
+uint16_t RFID_CARD_EXIT;
+
+uint16_t pass[3] ={0};
+
+unsigned char Available_Slots='3';
+uint8_t Search_Done = 0;
+
+
+
+void RFID_CARD_Enter_CallBack(void);
+void RFID_CARD_EXIT_CallBack(void);
+
+void LCD_Welcome(void);
+void LCD_Display_Empty_Slots(void);
+void LEDs_Init(void);
+void PIRs_Iint(void);
+void Store_IDs_From_Admin(void);
+
+void LCDS_init();
+
+LCD_Config_t LCD0;
+
+LCD_Config_t LCD1;
+
+void UART1_CALL(){
+	static uint8_t i=0;
+	MCAL_USART_Recieve(USART1, &pass[i++], Enable);
+
+}
+void UART2_CALL(){
+
+}
+int main(void)
+{
+
+	RCC_GPIOA_CLK_EN();
+	RCC_GPIOB_CLK_EN();
+	RCC_AFIO_CLK_EN();
+	Keypad_init();
+
+
+	LCDS_init();
+	Timer2_init();
+	Servo1_Entry_Gate_Init();
+	Servo2_Exit_Gate_Init();
+	//==========================UART1 INIT=============================
+	UART_Config_t UART1_C;
+	UART1_C.BaudRate=USART_BaudRate_115200;
+	UART1_C.HWFlowCtl=USART_HwFlowCtl_NONE;
+	UART1_C.Parity=USART_Parity_None;
+	UART1_C.StopBits=USART_StopBits_1;
+	UART1_C.Payload_Length=USART_Payload_Length8;
+	UART1_C.USART_Mode=USART_MODE_TX_RX;
+	UART1_C.P_IRQ_CallBack=RFID_CARD_Enter_CallBack;
+	UART1_C.IRQ_Enable=USART_IRQ_Enable_RXIEN;
+
+	MCAL_USART_Init(&UART1_C, USART1);
+	MCAL_USART_SetPins(USART1);
+	/* PA9  TX
+	 * PA10 RX
+	 * PA11 CTC
+	 * PA12 RTS
+	 */
+/*
+write your Code 
+*/
+
+
+	//==========================UART2 INIT=============================
+	UART_Config_t UART2_C;
+	UART2_C.BaudRate=USART_BaudRate_115200;
+	UART2_C.HWFlowCtl=USART_HwFlowCtl_NONE;
+	UART2_C.Parity=USART_Parity_None;
+	UART2_C.StopBits=USART_StopBits_1;
+	UART2_C.Payload_Length=USART_Payload_Length8;
+	UART2_C.USART_Mode=USART_MODE_TX_RX;
+	UART2_C.P_IRQ_CallBack=UART2_CALL;
+	UART2_C.IRQ_Enable=USART_IRQ_Enable_RXIEN;
+	MCAL_USART_Init(&UART2_C, USART2);
+	MCAL_USART_SetPins(USART2);
+	/* PA2  ->TX
+	 * PA3 ->RX
+	 * PA0 ->CTS
+	 * PA1 ->RTS
+	 */
+
+		/*
+		write your Code 
+		*/
+
+	LCD_INIT(0, &LCD0);
+	LCD_INIT(1, &LCD1);
+	LEDs_Init();
+	PIRs_Iint();
+
+	/*==========Enter IDs To Store In Array Pass==========*/
+	 Store_IDs_From_Admin();
+
+	/*Dash Bord LCD*/
+	LCD_Welcome();
+	dms(2000);
+	LCD_Display_Empty_Slots();
+
+
+	int i=0;
+	while(1)
+	{
+
+
+		if(Available_Slots>'0')
+		{
+			for(i=0;i<3;i++){
+//			MCAL_USART_Recieve(USART1, &pass[i], Enable);
+//			MCAL_USART_Send(USART1, &pass[i], Enable);
+		}}
+		/*======Parking is full so not allow enetr cars=======*/
+		else
+		{
+
+		}
+
+		//Search about ID in array of Pass
+		for(i=0;i<3;i++)
+		{
+
+
+		}
+		/*=====================Enter gate=====================*/
+		
+		/*===================Exit gate====================*/
+	
+
+		/*==================Wrong Id====================*/
+	
+
+	}
+
+	return 0;
+}
+
+
+/*Call Back For UART*/
+void RFID_CARD_Enter_CallBack(void)
+{
+	/*
+write your Code 
+*/
+}
+
+void RFID_CARD_EXIT_CallBack(void)
+{
+/*
+write your Code 
+*/
+}
+
+
+
+void LCD_Welcome(void)
+{
+	/*Dash Bord LCD*/
+
+	LCD_WRITE_COMMAND(1, 0x0c);
+	LCD_WRITE_COMMAND(1, 0x01);
+	LCD_GOTO_XY(1, 0, 0);
+	LCD_WRITE_STRING(1,"Welcome in Smart Parking");
+}
+
+void LCD_Display_Empty_Slots(void)
+{
+	LCD_WRITE_COMMAND(1, 0x0c);
+	LCD_WRITE_COMMAND(1, 0x01);
+	LCD_GOTO_XY(1, 0, 0);
+	LCD_WRITE_STRING(1,"Empty Slots=");
+	LCD_GOTO_XY(1, 13, 0);
+	LCD_WRITE_CHAR(1,Available_Slots);
+}
+
+void LEDs_Init(void)
+{
+	//RED LED A0
+/*
+write your Code 
+*/
+
+	//GREEN LED A11
+	/*
+write your Code 
+*/
+}
+
+void PIRs_Iint(void)
+{
+	//PIR1 A7
+	GPIO_PinConfig_t PinCinfg;
+	PinCinfg.GPIO_Pin_Number=GPIO_Pin_7;
+	PinCinfg.GPIO_Mode = GPIO_MODE_INPUT_PU;
+	MCAL_GPIO_Init(GPIOA, &PinCinfg);
+
+	//PIR2 A1
+	PinCinfg.GPIO_Pin_Number=GPIO_Pin_1;
+	PinCinfg.GPIO_Mode = GPIO_MODE_INPUT_PU;
+	MCAL_GPIO_Init(GPIOA, &PinCinfg);
+
+	MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_0, 1); //make A0 ground
+	MCAL_GPIO_WritePin(GPIOA, GPIO_Pin_11, 1); //make A11 ground
+
+}
+
+void Store_IDs_From_Admin(void)
+{
+	LCD_WRITE_COMMAND(0, 0x0c);
+	LCD_WRITE_COMMAND(0, 0x01);
+	LCD_GOTO_XY(0, 0, 0);
+	LCD_WRITE_STRING(0,"Enter Car IDS");
+	static uint8_t i=0;
+	for(i=0;i<3;i++){
+		do{
+			pass[i]=Keypad_getkey();
+		}
+		while(pass[i]=='N');
+		LCD_WRITE_COMMAND(0, 0x0c);
+		LCD_WRITE_COMMAND(0, 0x01);
+		LCD_GOTO_XY(0, 0, 0);
+		LCD_WRITE_STRING(0,"ID ");
+		LCD_GOTO_XY(0, 4, 0);
+		LCD_WRITE_CHAR(0,i+48);
+		LCD_GOTO_XY(0, 5, 0);
+		LCD_WRITE_CHAR(0,'=');
+		LCD_GOTO_XY(0, 6, 0);
+		LCD_WRITE_CHAR(0,pass[i]);
+//		pass[i]=Keypad_getkey();
+	}
+	LCD_WRITE_COMMAND(0, 0x0c);
+	LCD_WRITE_COMMAND(0, 0x01);
+	LCD_GOTO_XY(0, 0, 0);
+	LCD_WRITE_STRING(0,"Allowed IDS=");
+	for(i=0;i<3;i++){
+	LCD_GOTO_XY(0, i+12, 0);
+	LCD_WRITE_CHAR(0,pass[i]);
+	}
+	/*
+write your Code 
+*/
+}
+void LCDS_init(){
+	LCD1.LCD_MODE=LCD_MODE_4BIT_2LINES;
+	LCD1.EN_LCD_PIN.GPIO_Port = GPIOA;
+	LCD1.EN_LCD_PIN.GPIO_PIN = GPIO_Pin_6;
+	LCD1.RS_LCD_PIN.GPIO_Port = GPIOA;
+	LCD1.RS_LCD_PIN.GPIO_PIN = GPIO_Pin_5;
+	LCD1.RW_LCD_PIN.GPIO_Port = GPIOA;
+	LCD1.RW_LCD_PIN.GPIO_PIN = GPIO_Pin_4;
+	LCD1.D_LCD_PIN[0].GPIO_Port = GPIOA;
+	LCD1.D_LCD_PIN[0].GPIO_PIN = GPIO_Pin_12;
+	LCD1.D_LCD_PIN[1].GPIO_Port = GPIOA;
+	LCD1.D_LCD_PIN[1].GPIO_PIN = GPIO_Pin_13;
+	LCD1.D_LCD_PIN[2].GPIO_Port = GPIOA;
+	LCD1.D_LCD_PIN[2].GPIO_PIN = GPIO_Pin_14;
+	LCD1.D_LCD_PIN[3].GPIO_Port = GPIOA;
+	LCD1.D_LCD_PIN[3].GPIO_PIN = GPIO_Pin_15;
+
+
+	LCD0.LCD_MODE=LCD_MODE_4BIT_2LINES;
+	LCD0.EN_LCD_PIN.GPIO_Port = GPIOB;
+	LCD0.EN_LCD_PIN.GPIO_PIN = GPIO_Pin_10;
+	LCD0.RS_LCD_PIN.GPIO_Port = GPIOB;
+	LCD0.RS_LCD_PIN.GPIO_PIN = GPIO_Pin_11;
+	LCD0.RW_LCD_PIN.GPIO_Port = GPIOA;
+	LCD0.RW_LCD_PIN.GPIO_PIN = GPIO_Pin_4;
+	LCD0.D_LCD_PIN[0].GPIO_Port = GPIOB;
+	LCD0.D_LCD_PIN[0].GPIO_PIN = GPIO_Pin_12;
+	LCD0.D_LCD_PIN[1].GPIO_Port = GPIOB;
+	LCD0.D_LCD_PIN[1].GPIO_PIN = GPIO_Pin_13;
+	LCD0.D_LCD_PIN[2].GPIO_Port = GPIOB;
+	LCD0.D_LCD_PIN[2].GPIO_PIN = GPIO_Pin_14;
+	LCD0.D_LCD_PIN[3].GPIO_Port = GPIOB;
+	LCD0.D_LCD_PIN[3].GPIO_PIN = GPIO_Pin_15;
+}
+
